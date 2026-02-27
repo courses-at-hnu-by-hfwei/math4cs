@@ -1,6 +1,9 @@
-# discrete-math-lectures
+# math4cs-lectures
 
-Lectures on [Discrete Mathematics @ software.nju.edu.cn](https://github.com/orgs/courses-at-nju-by-hfwei/teams/discrete-math-at-nju-software/repositories)
+Lectures on [Mathematics for Computer Science@Hunan University](https://github.com/orgs/courses-at-hnu-by-hfwei/teams/math4cs-hnu)
+
+## 教材
+-《离散数学 (第三版)》 杨圣洪等编著; 科学出版社
 
 ## 阅读材料
 - 《离散数学结构》
@@ -12,8 +15,8 @@ Lectures on [Discrete Mathematics @ software.nju.edu.cn](https://github.com/orgs
 
 | 周次 | 日期 (周四) | 主题 | 阅读材料 |
 | :---: | :---: | :---: | :---: |
-| 1 | 2021-03-04 | [0-overview](/0-overview) | |
-| 2 | 2021-03-11 | [1-prop-logic](/1-prop-logic) | |
+| 1 | 2026-03-03 | [0-overview](/0-overview) | |
+<!-- | 2 | 2021-03-11 | [1-prop-logic](/1-prop-logic) | |
 | 3 | 2021-03-18 | [2-predicate-logic](2-predicate-logic) | |
 | 4 | 2021-03-25 | [3-mathematical-induction](/3-mathematical-induction) | |
 | 5 | 2021-04-01 | [4-set](/4-set) | |
@@ -27,7 +30,7 @@ Lectures on [Discrete Mathematics @ software.nju.edu.cn](https://github.com/orgs
 | 13 | 2021-05-27 | [12-matching-flow](/12-matching-flow) | |
 | 14 | 2021-05-29 | [13-group](/13-group) | |
 | 15 | 2021-06-03 | [14-subgroup](/14-subgroup) | |
-| 16 | 2021-06-10 | [15-review](/15-review) | |
+| 16 | 2021-06-10 | [15-review](/15-review) | | -->
 
 
 ## 后续课程建设计划
