@@ -1,0 +1,119 @@
+% induction.tex
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\begin{frame}{}
+  \begin{theorem}[第一数学归纳法 (The First Mathematical Induction)]
+    设 $P(n)$ 是关于自然数的一个性质。
+    如果
+    \begin{enumerate}[(i)]
+      \setlength{\itemsep}{8pt}
+      \item $P(0)$ 成立;
+      \item 对任意自然数 $n$, 如果 $P(n)$ 成立, 则 $P(n+1)$ 成立。
+    \end{enumerate}
+    \vspace{0.20cm}
+    那么, $P(n)$ 对所有自然数 $n$ 都成立。
+  \end{theorem}
+\end{frame}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\begin{frame}{}
+  \begin{center}
+    Peano 公理体系刻画了\red{\bf 自然数的递归结构}
+  \end{center}
+
+  \begin{definition}[Peano Axioms]
+    \begin{enumerate}[(1)]
+      \setlength{\itemsep}{6pt}
+      \item 0 是自然数;
+      \item 如果 $n$ 是自然数, 则它的后继 ${\bf S}n$ 也是自然数;
+      \item 0 不是任何自然数的后继;
+      \item 两个自然数相等当且仅当它们的后继相等;
+      \item \red{\bf 数学归纳原理:} 如果
+        \begin{enumerate}[(i)]
+          \setlength{\itemsep}{8pt}
+          \item $P(0)$ 成立;
+          \item 对任意自然数 $n$, 如果 $P(n)$ 成立, 则 $P(n+1)$ 成立。
+        \end{enumerate}
+        那么, $P(n)$ 对所有自然数 $n$ 都成立。
+    \end{enumerate}
+  \end{definition}
+\end{frame}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\begin{frame}{}
+  \begin{definition}[良序原理 (The Well-Ordering Principle)]
+    \red{自然数集}的任意\blue{非空}子集都有一个最小元。
+  \end{definition}
+
+  \pause
+  \vspace{0.60cm}
+  \begin{theorem}{}
+    良序原理与(第一)数学归纳法等价。
+  \end{theorem}
+\end{frame}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\begin{frame}{}
+  \begin{lemma}
+    (第一)数学归纳法蕴含良序原理。
+  \end{lemma}
+
+  \pause
+  \begin{proof}
+    \begin{center}
+      \red{By mathematical induction on the size $n$ of non-empty subsets of $\mathbb{N}$.}
+
+      \vspace{-0.30cm}
+      \[
+        P(n): \text{All subsets of size $n$ contain a minimum.}
+      \]
+
+      \pause
+      \begin{description}[Inductive Hypothesis:]
+        \item[Basis Step:] $P(1)$
+        \item[\textcolor{cyan}{Inductive Hypothesis:}] $P(n)$
+        \item[Inductive Step:] $P(n) \to P(n+1)$
+          \only<4>{
+            \begin{itemize}
+              \item $A' \gets A \setminus {a}$
+              \item $x \gets \min A'$
+              \item Compare $x$ with $a$
+            \end{itemize}
+          }
+      \end{description}
+
+      \only<5>{
+        \vspace{-0.50cm}
+        \[
+          \red{\forall n \in \mathbb{N}: P(n) \quad \text{\it vs. } \quad P(\infty)}
+        \]
+      }
+    \end{center}
+  \end{proof}
+\end{frame}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\begin{frame}{}
+  \begin{lemma}
+    (第一)数学归纳法蕴含良序原理。
+  \end{lemma}
+
+  \begin{center}
+    \red{By contradiction.}
+    \[
+      \exists S \neq \emptyset: S \text{ has no minimum element.}
+    \]
+    \pause
+    \vspace{-0.30cm}
+    \[
+      A \triangleq \mathbb{N} \setminus S
+    \]
+    \pause
+    We claim that $A = \mathbb{N}$, and thus $S = \emptyset$, a contradiction.
+  \end{center}
+\end{frame}
+%%%%%%%%%%%%%%%
