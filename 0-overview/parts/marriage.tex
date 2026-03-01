@@ -9,16 +9,36 @@
     to establish a \red{stable} marriage.
   \end{exampleblock}
 
-  \vspace{0.30cm}
+  % \[
+  %   \blue{\set{xa, yb, zd, wc}} \text{ is a \red{stable} matching}
+  % \]
   \fig{width = 0.60\textwidth}{figs/4-men-women}
 
   \pause
+  \vspace{-0.30cm}
   \[
-    \set{\red{xb}, yc, zd, \red{wa}}
+    \set{\red{xb}, yc, zd, \red{wa}} \text{ is an \red{unstable} matching}
   \]
   \[
-    (x, a) \text{ is an unstable pair}
+    (x, a) \text{ is a \red{(dangerous)} unstable unmatched pair}
   \]
+
+  \pause
+  \begin{definition}[Stable Matching]
+    A \blue{matching} is \red{stable}
+    when there does {\it not} exist any pair $(A, B)$
+    which both prefer each other to their current partner
+    under the matching.
+  \end{definition}
+\end{frame}
+%%%%%%%%%%%%%%%%%%%%
+
+%%%%%%%%%%%%%%%%%%%%
+\begin{frame}
+  \fig{width = 0.80\textwidth}{figs/cs-three-questions-panels}
+  \begin{center}
+    \red{\large 计算机科学的``灵魂三问: 可解性、算法设计、算法效率}
+  \end{center}
 \end{frame}
 %%%%%%%%%%%%%%%%%%%%
 
@@ -31,7 +51,20 @@
   \fig{width = 0.80\textwidth}{figs/4-men-women}
 
   \begin{theorem}[The Gale-Shapley Algorithm (1962)]
-    It is always possible to solve SMP.
+    It is always possible to solve \textup{SMP}: Men propose + Women accept/reject.
   \end{theorem}
+
+  \pause
+  \fig{width = 0.20\textwidth}{figs/ask-right-questions}
+\end{frame}
+%%%%%%%%%%%%%%%%%%%%
+
+%%%%%%%%%%%%%%%%%%%%
+\begin{frame}{}
+  \begin{center}
+    \blue{\large Applications and Extensions}
+
+    \fig{width = 0.95\textwidth}{figs/stable-marriage-applications}
+  \end{center}
 \end{frame}
 %%%%%%%%%%%%%%%%%%%%
