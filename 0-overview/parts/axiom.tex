@@ -12,6 +12,31 @@
 \end{frame}
 %%%%%%%%%%%%%%%
 
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\begin{frame}{}
+  \begin{center}
+    Peano 公理体系刻画了\red{\bf 自然数的递归结构}
+  \end{center}
+
+  \begin{definition}[Peano Axioms]
+    \begin{enumerate}[(1)]
+      \setlength{\itemsep}{6pt}
+      \item 0 是自然数;
+      \item 如果 $n$ 是自然数, 则它的后继 ${\bf S}n$ 也是自然数;
+      \item 0 不是任何自然数的后继;
+      \item 两个自然数相等当且仅当它们的后继相等;
+      \item \red{\bf 数学归纳原理:} 如果
+        \begin{enumerate}[(i)]
+          \setlength{\itemsep}{8pt}
+          \item $P(0)$ 成立;
+          \item 对任意自然数 $n$, 如果 $P(n)$ 成立, 则 $P(n+1)$ 成立。
+        \end{enumerate}
+        那么, $P(n)$ 对所有自然数 $n$ 都成立。
+    \end{enumerate}
+  \end{definition}
+\end{frame}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
 %%%%%%%%%%%%%%%
 \begin{frame}{}
   \begin{center}
