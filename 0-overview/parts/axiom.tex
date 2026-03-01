@@ -3,63 +3,40 @@
 %%%%%%%%%%%%%%%
 \begin{frame}{}
   \begin{center}
-    Self-contained (自包含; 自给自足)
+    \blue{\large \bf Axiomatic Systems (公理系统)}
 
-    \fig{width = 0.50\textwidth}{figs/axiomatic-systems}
+    \vspace{1em}
+    Self-contained (自包含; 不假于外物); Self-consistent (自洽; 内部无矛盾)
 
-    Syntax {\it vs.} Semantics (语法与语义对立统一)
+    \fig{width = 0.90\textwidth}{figs/axiomatic-systems-tree-full}
   \end{center}
 \end{frame}
 %%%%%%%%%%%%%%%
 
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-\begin{frame}{}
-  \begin{center}
-    Peano 公理体系刻画了\red{\bf 自然数的递归结构}
-  \end{center}
-
-  \begin{definition}[Peano Axioms]
-    \begin{enumerate}[(1)]
-      \setlength{\itemsep}{6pt}
-      \item 0 是自然数;
-      \item 如果 $n$ 是自然数, 则它的后继 ${\bf S}n$ 也是自然数;
-      \item 0 不是任何自然数的后继;
-      \item 两个自然数相等当且仅当它们的后继相等;
-      \item \red{\bf 数学归纳原理:} 如果
-        \begin{enumerate}[(i)]
-          \setlength{\itemsep}{8pt}
-          \item $P(0)$ 成立;
-          \item 对任意自然数 $n$, 如果 $P(n)$ 成立, 则 $P(n+1)$ 成立。
-        \end{enumerate}
-        那么, $P(n)$ 对所有自然数 $n$ 都成立。
-    \end{enumerate}
-  \end{definition}
-\end{frame}
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-
-%%%%%%%%%%%%%%%
-\begin{frame}{}
-  \begin{center}
-    {\bf \large \red{三个公理系统:} 逻辑、集合论、\gray{图论}、抽象代数(群论)}
-  \end{center}
-\end{frame}
-%%%%%%%%%%%%%%%
-
-%%%%%%%%%%%%%%%
+% %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 % \begin{frame}{}
 %   \begin{center}
-%     {\Large Axiomatic Set Theory \blue{(ZFC)}}
+%     Peano 公理体系刻画了\red{\bf 自然数的递归结构}
 %   \end{center}
-%
-%   \vspace{0.80cm}
-%   \begin{columns}
-%     \column{0.45\textwidth}
-%       \fig{width = 0.50\textwidth}{figs/Zermelo}{\centerline{Ernst Zermelo (1871--1953)}}
-%     \column{0.45\textwidth}
-%       \fig{width = 0.48\textwidth}{figs/Fraenkel}{\centerline{Abraham Fraenkel (1891--1965)}}
-%   \end{columns}
+
+%   \begin{definition}[Peano Axioms]
+%     \begin{enumerate}[(1)]
+%       \setlength{\itemsep}{6pt}
+%       \item 0 是自然数;
+%       \item 如果 $n$ 是自然数, 则它的后继 ${\bf S}n$ 也是自然数;
+%       \item 0 不是任何自然数的后继;
+%       \item 两个自然数相等当且仅当它们的后继相等;
+%       \item \red{\bf 数学归纳原理:} 如果
+%         \begin{enumerate}[(i)]
+%           \setlength{\itemsep}{8pt}
+%           \item $P(0)$ 成立;
+%           \item 对任意自然数 $n$, 如果 $P(n)$ 成立, 则 $P(n+1)$ 成立。
+%         \end{enumerate}
+%         那么, $P(n)$ 对所有自然数 $n$ 都成立。
+%     \end{enumerate}
+%   \end{definition}
 % \end{frame}
-%%%%%%%%%%%%%%%
+% %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
 %%%%%%%%%%%%%%%
 \begin{frame}{}
@@ -71,15 +48,35 @@
   \end{columns}
 
   \vspace{0.30cm}
-  \begin{enumerate}[(1)]
-    \item To draw a straight \blue{line} from any \blue{point} to any point.
-    \item To extend a finite straight line continuously in a straight line.
-    \item To describe a circle with any center and radius.
-    \item That all right angles are equal to one another.
-    \item \red{The parallel postulate}.
-  \end{enumerate}
+  \begin{description}[(平行公设)]
+    \item[直线公设] 两点决定一条直线
+    \item[\gray{延伸公设}] 直线段可以向两端无限延伸
+    \item[圆公设] 以任一点为圆心、任意长为半径, 可作一圆
+    \item[角公设] 所有直角皆相等
+    \item[平行公设] \red{过直线外一点, 可作且只可作一直线与此直线平行}
+  \end{description}
 \end{frame}
 %%%%%%%%%%%%%%%
+
+% %%%%%%%%%%%%%%%
+% \begin{frame}{}
+%   \begin{columns}
+%     \column{0.50\textwidth}
+%       \fig{width = 0.55\textwidth}{figs/elements-ch}
+%     \column{0.50\textwidth}
+%       \fig{width = 0.50\textwidth}{figs/hilbert-geometry}
+%   \end{columns}
+
+%   \vspace{0.30cm}
+%   \begin{enumerate}[(1)]
+%     \item To draw a straight \blue{line} from any \blue{point} to any point.
+%     \item To extend a finite straight line continuously in a straight line.
+%     \item To describe a circle with any center and radius.
+%     \item That all right angles are equal to one another.
+%     \item \red{The parallel postulate}.
+%   \end{enumerate}
+% \end{frame}
+% %%%%%%%%%%%%%%%
 
 %%%%%%%%%%%%%%%%%%%%
 \begin{frame}{}
@@ -91,11 +88,11 @@
     \begin{enumerate}[(1)]
       \item There are exactly four \teal{points}.
       \item It is impossible for three \teal{points} to \teal{be on} the same line.
-      \item For every pair of distinct \teal{points} $x$ and $y$,
+      \item For every pair of distinct \teal{points} $x$ and $y$, \\
         there is a unique \teal{line} $l$ such that $x$ \teal{is on} $l$
         and $y$ \teal{is on} $l$.
       \item Given a \teal{line} $l$ and a \teal{point} $x$ that is not \teal{on} $l$,
-        there is a unique \teal{line} $m$ such that $x$ \teal{is on} $m$
+        there is a unique \\ \teal{line} $m$ such that $x$ \teal{is on} $m$
         and no \teal{point} on $l$ is also \teal{on} $m$.
     \end{enumerate}
   \end{exampleblock}
@@ -108,19 +105,57 @@
 \end{frame}
 %%%%%%%%%%%%%%%
 
+%%%%%%%%%%%%%%%
+\begin{frame}{}
+  \begin{center}
+    \fig{width = 0.60\textwidth}{figs/syntax-semantics}
+
+    \vspace{1em}
+    Syntax {\it vs.} Semantics (语法与语义对立统一)
+  \end{center}
+\end{frame}
+%%%%%%%%%%%%%%%
+
 %%%%%%%%%%%%%%%%%%%%
 \begin{frame}{}
   \begin{center}
-    Syntax {\it vs.} Semantics
-
-    \pause
-    \vspace{0.30cm}
     \fig{width = 0.70\textwidth}{figs/point-loop}
+
     \[
       \text{point}: \red{\cdot} \qquad
       \text{line}: \red{\bigcirc} \qquad
       \text{is on}: \red{\bigodot}
     \]
+  \end{center}
+\end{frame}
+%%%%%%%%%%%%%%%
+
+%%%%%%%%%%%%%%%
+\begin{frame}{}
+  \begin{center}
+    \red{\bf \large 你还能想到哪些公理系统? 不一定是数学方面的!}
+  \end{center}
+
+  \pause
+  \begin{columns}
+    \column{0.40\textwidth}
+      \fig{width = 0.95\textwidth}{figs/three-body-book}
+      \begin{center}
+        \red{\bf 宇宙社会学}
+      \end{center}
+    \column{0.60\textwidth}
+      \fig{width = 0.95\textwidth}{figs/three-body-axioms}
+  \end{columns}
+\end{frame}
+%%%%%%%%%%%%%%%
+
+%%%%%%%%%%%%%%%
+\begin{frame}{}
+  \begin{center}
+    本课程将介绍\red{\bf 三个公理系统}:
+
+    \vspace{1em}
+    \blue{逻辑、集合论、\gray{图论}、群论 (抽象代数)}
   \end{center}
 \end{frame}
 %%%%%%%%%%%%%%%
@@ -138,7 +173,50 @@
 %%%%%%%%%%%%%%%%%%%%
 \begin{frame}
   \begin{center}
-    \fig{width = 0.60\textwidth}{figs/see-you-next-week}
+    \fig{width = 0.50\textwidth}{figs/see-you-next-time}
   \end{center}
 \end{frame}
 %%%%%%%%%%%%%%%%%%%%
+
+%%%%%%%%%%%%%%%
+% \begin{frame}{}
+%   \begin{center}
+%     {\Large Axiomatic Set Theory \blue{(ZFC)}}
+%   \end{center}
+%
+%   \vspace{0.80cm}
+%   \begin{columns}
+%     \column{0.45\textwidth}
+%       \fig{width = 0.50\textwidth}{figs/Zermelo}{\centerline{Ernst Zermelo (1871--1953)}}
+%     \column{0.45\textwidth}
+%       \fig{width = 0.48\textwidth}{figs/Fraenkel}{\centerline{Abraham Fraenkel (1891--1965)}}
+%   \end{columns}
+% \end{frame}
+%%%%%%%%%%%%%%%
+
+% %%%%%%%%%%%%%%%%%%%%
+% \begin{frame}{}
+%   \begin{exampleblock}{\red{四点几何}的公理系统}
+%     \blue{\bf \textit{未定义术语：}} 点、线、点在线上
+
+%     \vspace{0.50cm}
+%     \purple{\bf \textit{公理：}}
+%     \begin{enumerate}[(1)]
+%       \item 有且仅有四个\teal{点}
+%       \item 任意三\teal{点}不共\teal{线}。
+%       \item 对于每一对不同的\teal{点} $x$ 和 $y$,
+%         存在一条唯一的\teal{线} $l$，使得 $x$ \teal{在线} $l$ 上
+%         且 $y$ \teal{在线} $l$ 上。
+%       \item 给定一条\teal{线} $l$ 和一个不在\teal{线} $l$ 上的\teal{点} $x$，
+%         存在一条唯一的\teal{线} $m$，使得 $x$ \teal{在线} $m$ 上
+%         且\teal{线} $l$ 上的任何\teal{点}都不在\teal{线} $m$ 上。
+%     \end{enumerate}
+%   \end{exampleblock}
+
+%   \pause
+%   \vspace{0.30cm}
+%   \begin{theorem}
+%     至少存在两条不同的\teal{线}。
+%   \end{theorem}
+% \end{frame}
+% %%%%%%%%%%%%%%%
