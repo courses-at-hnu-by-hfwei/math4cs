@@ -64,6 +64,40 @@
 
 %%%%%%%%%%%%%%%%%%%%
 \begin{frame}{}
+  \begin{definition}[真值指派的扩张 ($\overline{v}$)]
+    令 $S$ 为一个命题符号的集合。
+    令 $\overline{S}$ 为只含有 $S$ 中命题符号的公式集。
+
+    $S$ 上的\red{\bf 真值指派 $v$ 的扩张}是一个从 $\overline{S}$ 到真假值的映射
+    \[
+      \overline{v}: \overline{S} \to \set{T, F}.
+    \]
+  \end{definition}
+
+  \pause
+  \[
+    \alpha = (B \to (A \to C)) \leftrightarrow ((B \land A) \to C)
+  \]
+
+  \[
+    v(A) = v(B) = T, \quad v(C) = F
+  \]
+
+  \pause
+  \[
+    \red{\boxed{\overline{v}(\alpha) = ?}}
+  \]
+  \pause
+  \[
+    \overline{v}(A \to C) = ?
+    \qquad \overline{v}(B \land A) = ?
+    \qquad \overline{v}((B \land A) \to C) = ?
+  \]
+\end{frame}
+%%%%%%%%%%%%%%%%%%%%
+
+%%%%%%%%%%%%%%%%%%%%
+\begin{frame}{}
   \begin{center}
     使用\red{\bf 真值表}定义\red{\bf 逻辑联词的语义}
 
@@ -95,37 +129,21 @@
   \]
 
   \pause
-  \vspace{0.30cm}
   \[
-    \alpha \text{ 的真值为}\; T
+    \overline{v}(A \to C) = F
+    \qquad \overline{v}(B \to (A \to C)) = F
   \]
-\end{frame}
-%%%%%%%%%%%%%%%%%%%%
-
-%%%%%%%%%%%%%%%%%%%%
-\begin{frame}{}
-  \begin{definition}[真值指派的扩张 ($\overline{v}$)]
-    令 $S$ 为一个命题符号的集合。
-    令 $\overline{S}$ 为只含有 $S$ 中命题符号的公式集。
-
-    $S$ 上的\red{\bf 真值指派 $v$ 的扩张}是一个从 $\overline{S}$ 到真假值的映射
-    \[
-      \overline{v}: \overline{S} \to \set{T, F}.
-    \]
-  \end{definition}
-
-  \pause
   \[
-    \alpha: (((B \to (A \to C)) \leftrightarrow ((B \land A) \to C)))
-  \]
-
-  \[
-    v(A) = v(B) = T, \quad v(C) = F
+    \overline{v}(B \land A) = T
+    \qquad \overline{v}((B \land A) \to C) = F
   \]
 
   \pause
   \[
     \red{\boxed{\overline{v}(\alpha) = T}}
+  \]
+  \[
+    \alpha \text{ 在真值指派 $v$ 下的真值为}\; T
   \]
 \end{frame}
 %%%%%%%%%%%%%%%%%%%%
@@ -134,11 +152,7 @@
 \begin{frame}{}
   \begin{exampleblock}{课堂练习: 构造下列公式的真值表}
     \[
-      \lnot P \lor Q
-    \]
-
-    \[
-      (P \land Q) \lor (\lnot P \land \lnot Q)
+      (B \to (A \to C)) \leftrightarrow ((B \land A) \to C)
     \]
 
     \[
@@ -146,7 +160,11 @@
     \]
 
     \[
-      (((B \to (A \to C)) \leftrightarrow ((B \land A) \to C)))
+      \lnot P \lor Q
+    \]
+
+    \[
+      (P \land Q) \lor (\lnot P \land \lnot Q)
     \]
   \end{exampleblock}
 \end{frame}
@@ -160,7 +178,7 @@
 
   \pause
   \[
-    \alpha = (((B \to (A \to C)) \leftrightarrow ((B \land A) \to C)))
+    \alpha = (B \to (A \to C)) \leftrightarrow ((B \land A) \to C)
   \]
 
   \[
@@ -180,7 +198,8 @@
 %%%%%%%%%%%%%%%%%%%%
 \begin{frame}{}
   \begin{definition}[可满足的 (Satisfiable)]
-    如果存在某个真值指派满足公式 $\alpha$, 则 $\alpha$ 是可满足的。
+    如果\blue{\bf 存在}某个真值指派满足公式 $\alpha$,
+    则称 $\alpha$ 是\blue{\bf 可满足的}。
   \end{definition}
 
   \[
@@ -188,7 +207,7 @@
   \]
 
   \[
-    \alpha = (((B \to (A \to C)) \leftrightarrow ((B \land A) \to C)))
+    \alpha = (B \to (A \to C)) \leftrightarrow ((B \land A) \to C)
     \text{ 是{可满足的}}
   \]
 
@@ -212,36 +231,135 @@
 
 %%%%%%%%%%%%%%%%%%%%
 \begin{frame}{}
-  \begin{definition}[重言蕴含 (Tautologically Implies)]
-    \begin{center}
-      设 $\Sigma$ 为一个公式集。\\[10pt]
+  \begin{definition}[重言式/永真式 (Tautology)]
+    若公式 $\alpha$ 在\blue{\bf 所有}真值指派下均为真, 则称 $\alpha$ 为\red{\bf 重言式},
+    记为 $\models \alpha$。
+  \end{definition}
 
-      $\Sigma$ \red{\bf 重言蕴含}公式 $\alpha$,
-      记为 $\Sigma \models \alpha$, \\[5pt]
+  \[
+    (B \to (A \to C)) \leftrightarrow ((B \land A) \to C) \text{ 是\red{重言式}}
+  \]
 
-      如果\blue{每个}满足 $\Sigma$ 中\blue{所有}公式的真值指派都满足 $\alpha$。
-    \end{center}
+  \[
+    (\alpha \to (\beta \to \gamma)) \leftrightarrow ((\alpha \land \beta) \to \gamma)
+  \]
+
+  \pause
+  \[
+    \red{\boxed{(\alpha \to \beta) \leftrightarrow (\lnot \alpha \lor \beta)}}
+  \]
+\end{frame}
+%%%%%%%%%%%%%%%%%%%%
+
+%%%%%%%%%%%%%%%%%%%%
+\begin{frame}{}
+  \begin{center}
+    \fig{width = 0.30\textwidth}{figs/David-Hilbert}
+    \teal{David Hilbert (23 January 1862 - 14 February 1943)}
+  \end{center}
+
+  \begin{enumerate}[(1)]
+    \item
+      \[
+        \alpha \to (\beta \to \alpha)
+      \]
+    \item
+      \[
+        (\alpha \to (\beta \to \gamma)) \to ((\alpha \to \beta) \to (\alpha \to \gamma))
+      \]
+    \item
+      \[
+        (\lnot \beta \to \lnot \alpha) \to ((\lnot \beta \to \alpha) \to \beta)
+      \]
+  \end{enumerate}
+\end{frame}
+%%%%%%%%%%%%%%%%%%%%
+
+%%%%%%%%%%%%%%%%%%%%
+\begin{frame}{}
+  \begin{definition}[矛盾式/永假式 (Contradiction)]
+    若公式 $\alpha$ 在\blue{\bf 所有}真值指派下均为假, 则称 $\alpha$ 为\red{\bf 矛盾式}。
+  \end{definition}
+
+  \[
+    (P \land Q) \land \lnot P \text{ 是\red{矛盾式 (不可满足的)}}
+  \]
+\end{frame}
+%%%%%%%%%%%%%%%%%%%%
+
+%%%%%%%%%%%%%%%%%%%%
+\begin{frame}{}
+  \[
+    \boxed{\models \alpha}
+  \]
+
+  \begin{definition}[重言式/永真式 (Tautology)]
+    若公式 $\alpha$ 在\blue{\bf 所有}真值指派下均为真, 则称 $\alpha$ 为\red{\bf 重言式},
+    记为 $\models \alpha$。
   \end{definition}
 
   \pause
   \[
-    \set{\alpha} \models \beta \to \alpha
+    \blue{\set{\beta, \gamma, \tau}} \models \purple{\alpha}
+  \]
+  \begin{center}
+    仅要求 \purple{\bf 结论} $\alpha$ 在 $\beta$, $\gamma$, $\tau$ 等\blue{\bf 前提条件}都为真时为真。
+  \end{center}
+
+  \pause
+  \[
+    \boxed{\blue{\Sigma} \models \purple{\alpha}}
+  \]
+  \begin{center}
+    仅要求 \purple{\bf 结论} $\alpha$ 在公式集 $\Sigma$ 中所有\blue{\bf 前提条件}公式都为真时为真。
+  \end{center}
+
+  \pause
+  \[
+    \Sigma = \set{\alpha} \text{ 只含有一个公式时},\;
+    \set{\alpha} \models \beta \text{ 简记为 } \;\alpha \models \beta
   \]
 
   \pause
   \[
-    \set{\alpha \land \beta} \models \alpha
+    \Sigma = \emptyset \text{ 时},\;
+    \emptyset \models \alpha \text{ 简记为 } \models \alpha
   \]
+\end{frame}
+%%%%%%%%%%%%%%%%%%%%
+
+%%%%%%%%%%%%%%%%%%%%
+\begin{frame}{}
+  \begin{definition}[重言蕴含 (Tautologically Implies)]
+    \begin{center}
+      设 $\Sigma$ 为一个公式集。\\[3pt]
+      如果\blue{\bf 每一个}满足 $\Sigma$ 中\blue{\bf 所有}公式的真值指派都满足 $\alpha$, \\[3pt]
+      则称 $\Sigma$ \red{\bf 重言蕴含}公式 $\alpha$,
+      记为 $\Sigma \models \alpha$。
+    \end{center}
+  \end{definition}
 
   \pause
-  \[
-    \set{\alpha \to \beta, \alpha} \models \beta
-  \]
+  \begin{exampleblock}{小小的练习一下}
+    \[
+      \set{\alpha \land \beta} \models \alpha
+    \]
 
-  \pause
-  \[
-    \set{\alpha, \lnot \alpha} \models \beta
-  \]
+    \pause
+    \[
+      \set{\alpha \to \beta, \alpha} \models \beta
+    \]
+
+    \pause
+    \[
+      \set{\alpha, \lnot \alpha} \models \beta
+    \]
+
+    \pause
+    \[
+      \alpha \models \beta \to \alpha
+    \]
+  \end{exampleblock}
 \end{frame}
 %%%%%%%%%%%%%%%%%%%%
 
@@ -279,166 +397,176 @@
 
 %%%%%%%%%%%%%%%%%%%%
 \begin{frame}{}
-  \[
-    \Sigma = \emptyset
-  \]
-  \[
-    \emptyset \models \alpha \text{ 简记为 } \models \alpha
-  \]
-
-  \pause
-  \vspace{0.50cm}
-  \[
-    \Sigma = \set{\alpha} \text{ 只含有一个公式}
-  \]
-  \[
-    \set{\alpha} \models \beta \text{ 简记为 } \;\alpha \models \beta
-  \]
-\end{frame}
-%%%%%%%%%%%%%%%%%%%%
-
-%%%%%%%%%%%%%%%%%%%%
-\begin{frame}{}
-  \begin{definition}[重言式/永真式 (Tautology)]
-    如果 $\emptyset \models \alpha$, 则称 $\alpha$ 为\red{\bf 重言式},
-    记为 $\models \alpha$。
-  \end{definition}
-
-  \begin{center}
-    重言式在所有真值指派下均为真。
-    \[
-      \alpha = (((B \to (A \to C)) \leftrightarrow ((B \land A) \to C)))
-    \]
-  \end{center}
-
-  \pause
-  \vspace{0.30cm}
-  \begin{definition}[矛盾式/永假式 (Contradiction)]
-    若公式 $\alpha$ 在所有真值指派下均为假, 则称 $\alpha$ 为\red{\bf 矛盾式}。
-  \end{definition}
-
-  \[
-    (P \land Q) \land \lnot P \text{ 是\red{不可满足的}}
-  \]
-\end{frame}
-%%%%%%%%%%%%%%%%%%%%
-
-%%%%%%%%%%%%%%%%%%%%
-\begin{frame}{}
   \begin{definition}[重言等价 (Tautologically Equivalent)]
     如果 $\alpha \models \beta$ 且 $\beta \models \alpha$,
-    则称 $\alpha$ 与 $\beta$ \red{\bf 重言等价}, 记为 $\alpha \equiv \beta$。
+    则称 $\alpha$ 与 $\beta$ \red{\bf 重言等价},
+    记为 $\alpha \equiv \beta$ (或 $\alpha \Leftrightarrow \beta$)。
   \end{definition}
 
   \[
-    (B \to (A \to C)) \equiv (B \land A) \to C
+    (B \to (A \to C)) \leftrightarrow ((B \land A) \to C)
   \]
 
   \[
-    (((B \to (A \to C)) \leftrightarrow ((B \land A) \to C)))
+    B \to (A \to C) \equiv (B \land A) \to C
+  \]
+
+  \pause
+  \[
+    \text{注意}\; \teal{\alpha \Leftrightarrow \beta \;(\text{语义})} \text{ 与}\;
+    \purple{\alpha \leftrightarrow \beta \;(\text{语法})}
+    \text{ 的区别与联系}
+  \]
+
+  \pause
+  \[
+    \boxed{
+      \teal{\alpha \Leftrightarrow \beta} \text{ 成立}
+      \text{ 当且仅当}\; \purple{\alpha \leftrightarrow \beta} \text{ 是重言式}}
+  \]
+
+  \pause
+  \[
+    \text{如果已知}\; \purple{\alpha \leftrightarrow \beta} \text{ 是重言式,}\;
+    \text{则可将}\; \alpha \text{ 替换成\teal{\bf 语义上等价的}}\; \beta\text{。}
   \]
 \end{frame}
 %%%%%%%%%%%%%%%%%%%%
 
 %%%%%%%%%%%%%%%%%%%%
 \begin{frame}{}
-  \begin{description}[<+->][分配律:]
-    \item[交换律:]
-      \[
-        (A \land B) \leftrightarrow (B \land A)
-      \]
-      \[
-        (A \lor B) \leftrightarrow (B \lor A)
-      \]
-    \item[结合律:]
-      \[
-        ((A \land B) \land C) \leftrightarrow (A \land (B \land C))
-      \]
-      \[
-        ((A \lor B) \lor C) \leftrightarrow (A \lor (B \lor C))
-      \]
-    \item[分配律:]
-      \[
-        (A \land (B \lor C)) \leftrightarrow ((A \land B) \lor (A \land C))
-      \]
-      \[
-        (A \lor (B \land C)) \leftrightarrow ((A \lor B) \land (A \lor C))
-      \]
-    \item[德摩根 (De Morgan) 律:]
-      \[
-        \lnot (A \land B) \leftrightarrow (\lnot A \lor \lnot B)
-      \]
-      \[
-        \lnot (A \lor B) \leftrightarrow (\lnot A \land \lnot B)
-      \]
-  \end{description}
+  \begin{exampleblock}{重要的重言式举例}
+    \begin{description}[<+->][结合律:]
+      \item[幂等律:]
+        \[
+          (\alpha \land \alpha) \leftrightarrow \alpha
+        \]
+        \[
+          (\alpha \lor \alpha) \leftrightarrow \alpha
+        \]
+      \item[交换律:]
+        \[
+          (\alpha \land \beta) \leftrightarrow (\beta \land \alpha)
+        \]
+        \[
+          (\alpha \lor \beta) \leftrightarrow (\beta \lor \alpha)
+        \]
+      \item[结合律:]
+        \[
+          ((\alpha \land \beta) \land \gamma) \leftrightarrow (\alpha \land (\beta \land \gamma))
+        \]
+        \[
+          ((\alpha \lor \beta) \lor \gamma) \leftrightarrow (\alpha \lor (\beta \lor \gamma))
+        \]
+    \end{description}
+  \end{exampleblock}
 \end{frame}
 %%%%%%%%%%%%%%%%%%%%
 
 %%%%%%%%%%%%%%%%%%%%
 \begin{frame}{}
-  \begin{description}[<+->][双重否定律:]
-    \setlength{\itemsep}{8pt}
-    \item[双重否定律:]
-      \[
-        \lnot \lnot A \leftrightarrow A
-      \]
-    \item[排中律:]
-      \[
-        A \lor (\lnot A)
-      \]
-    \item[矛盾律:]
-      \[
-        \lnot (A \land \lnot A)
-      \]
-    \item[逆否命题:]
-      \[
-        (A \to B) \leftrightarrow (\lnot B \to \lnot A)
-      \]
-  \end{description}
+  \begin{exampleblock}{重要的重言式举例}
+    \begin{description}[<+->][分配律:]
+      \item[吸收律:]
+        \[
+          (\alpha \land (\alpha \lor \beta)) \leftrightarrow \alpha
+        \]
+        \[
+          (\alpha \lor (\alpha \land \beta)) \leftrightarrow \alpha
+        \]
+      \item[分配律:]
+        \[
+          (\alpha \land (\beta \lor \gamma)) \leftrightarrow ((\alpha \land \beta) \lor (\alpha \land \gamma))
+        \]
+        \[
+          (\alpha \lor (\beta \land \gamma)) \leftrightarrow ((\alpha \lor \beta) \land (\alpha \lor \gamma))
+        \]
+    \end{description}
+  \end{exampleblock}
 \end{frame}
 %%%%%%%%%%%%%%%%%%%%
 
 %%%%%%%%%%%%%%%%%%%%
 \begin{frame}{}
-  \begin{enumerate}[(1)]
-    \item
-      \[
-        \alpha \to (\beta \to \alpha)
-      \]
-    \item
-      \[
-        \red{\boxed{(\alpha \to \beta) \leftrightarrow (\lnot \alpha \lor \beta)}}
-      \]
-    \item
-      \[
-        (\alpha \to (\beta \to \gamma)) \leftrightarrow ((\alpha \land \beta) \to \gamma)
-      \]
-    \item
-      \[
-        (\alpha \to (\beta \to \gamma)) \to ((\alpha \to \beta) \to (\alpha \to \gamma))
-      \]
-  \end{enumerate}
+  \begin{exampleblock}{重要的重言式举例}
+    \begin{description}[<+->][条件重言式:]
+      \item[条件重言式:]
+        \[
+          \red{\boxed{(\alpha \to \beta) \leftrightarrow (\lnot \alpha \lor \beta)}}
+        \]
+    \end{description}
+  \end{exampleblock}
 \end{frame}
 %%%%%%%%%%%%%%%%%%%%
 
 %%%%%%%%%%%%%%%%%%%%
 \begin{frame}{}
-  \begin{exampleblock}{请证明以下公式是重言式}
+  \begin{exampleblock}{重要的重言式举例}
+    \begin{description}[<+->][德摩根 (De Morgan) 律:]
+      \item[德摩根 (De Morgan) 律:]
+        \[
+          \lnot (\alpha \land \beta) \leftrightarrow (\lnot \alpha \lor \lnot \beta)
+        \]
+        \[
+          \lnot (\alpha \lor \beta) \leftrightarrow (\lnot \alpha \land \lnot \beta)
+        \]
+    \end{description}
+  \end{exampleblock}
+  \fig{width = 0.25\textwidth}{figs/Augustus-De-Morgan}
+\end{frame}
+%%%%%%%%%%%%%%%%%%%%
+
+%%%%%%%%%%%%%%%%%%%%
+\begin{frame}{}
+  \begin{exampleblock}{重要的重言式举例}
+    \begin{description}[<+->][双重否定律:]
+      \setlength{\itemsep}{8pt}
+      \item[双重否定律:]
+        \[
+          \lnot \lnot \alpha \leftrightarrow \alpha
+        \]
+      \item[排中律:]
+        \[
+          \alpha \lor (\lnot \alpha)
+        \]
+      \item[矛盾律:]
+        \[
+          \lnot (\alpha \land \lnot \alpha)
+        \]
+      \item[逆否命题:]
+        \[
+          (\alpha \to \beta) \leftrightarrow (\lnot \beta \to \lnot \alpha)
+        \]
+    \end{description}
+  \end{exampleblock}
+\end{frame}
+%%%%%%%%%%%%%%%%%%%%
+
+%%%%%%%%%%%%%%%%%%%%
+\begin{frame}{}
+  \begin{exampleblock}{请证明以下重言等价}
     \[
-      ((A \to B) \land A) \to B
+      (\alpha \lor \beta) \to \gamma \equiv (\alpha \to \gamma) \land (\beta \to \gamma)
+    \]
+  \end{exampleblock}
+\end{frame}
+%%%%%%%%%%%%%%%%%%%%
+
+%%%%%%%%%%%%%%%%%%%%
+\begin{frame}{}
+  \begin{exampleblock}{请证明以下公式是重言式 (提示: 使用前面提到的重言式)}
+    \[
+      ((\alpha \to \beta) \land \alpha) \to \beta
     \]
 
     \pause
-    \vspace{0.50cm}
     \[
-      ((A \to B) \land \lnot B) \to \lnot A
+      ((\alpha \to \beta) \land \lnot \beta) \to \lnot \alpha
     \]
 
     \pause
-    \vspace{0.50cm}
     \[
-      ((A \lor B) \land \lnot A) \to B
+      ((\alpha \lor \beta) \land \lnot \alpha) \to \beta
     \]
   \end{exampleblock}
 \end{frame}
