@@ -3,10 +3,10 @@
 %%%%%%%%%%%%%%%%%%%%
 \begin{frame}{}
   \begin{center}
-    \fig{width = 0.60\textwidth}{figs/syntax-semantics}
+    {\Large ``先讲语法''}
 
-    \vspace{0.60cm}
-    语法与语义是``对立统一''的
+    \vspace{0.30cm}
+    \fig{width = 0.60\textwidth}{figs/syntax-semantics}
   \end{center}
 \end{frame}
 %%%%%%%%%%%%%%%%%%%%
@@ -19,39 +19,45 @@
 
   \vspace{0.30cm}
   \pause
-  \begin{exampleblock}{以下哪些是命题?}
-    \begin{enumerate}
-      \item $1 + 1 = 2$
-      \item $X + 6 = 0$
+  \begin{columns}
+    \column{0.60\textwidth}
+      \begin{exampleblock}{以下哪些是命题?}
+        \begin{enumerate}
+          \item $1 + 1 = 2$
+          \item $X + 6 = 0$
+          \pause
+          \item 中国是一个伟大的国家
+          \item 你饿了吗?
+          \item 你要好好休息
+          \pause
+          \item 哥德巴赫猜想
+          \pause
+          \item 今天是雨天
+          \item 明天是周五
+          \pause
+          \item 这句话是假话
+        \end{enumerate}
+      \end{exampleblock}
+    \column{0.40\textwidth}
       \pause
-      \item 中国是一个伟大的国家
-      \item 你饿了吗?
-      \item 你要好好休息
-      \pause
-      \item 哥德巴赫猜想
-      \pause
-      \item 今天是雨天
-      \item 明天是周五
-      \pause
-      \item 这句话是假话
-    \end{enumerate}
-  \end{exampleblock}
+      \fig{width = 0.60\textwidth}{figs/i-donot-care}
+  \end{columns}
 \end{frame}
 %%%%%%%%%%%%%%%%%%%%
 
 %%%%%%%%%%%%%%%%%%%%
 \begin{frame}{}
   \begin{center}
-    \red{\bf 忘掉``命题''!!!}
+    \red{\Large \bf 忘掉``命题''!!!}
 
     \vspace{1.00cm}
-    逻辑不关心单个命题的真假, 而关心命题之间的关系
+    逻辑研究不关心单个命题的真假, 而关心命题之间的关系
   \end{center}
 \end{frame}
 %%%%%%%%%%%%%%%%%%%%
 
 %%%%%%%%%%%%%%%%%%%%
-\begin{frame}{}
+\begin{frame}[fragile]{}
   \begin{definition}[命题逻辑的语言]
     命题逻辑的语言包括以下3部分:
     \begin{enumerate}[(1)]
@@ -75,27 +81,53 @@
 
 %%%%%%%%%%%%%%%%%%%%
 \begin{frame}{}
-  \begin{definition}[公式 (Formula)]
+  \begin{definition}[\gray{(合式; Well-formed)} 公式 (Formula)]
     \begin{enumerate}[(1)]
       \setlength{\itemsep}{8pt}
-      \item 每个命题符号都是公式;
-      \item 如果 $\alpha$ 和 $\beta$都是公式,
-        则 $(\lnot \alpha)$, $(\alpha \land \beta)$, $(\alpha \lor \beta)$,
+      \item 每个命题符号 ($P$、$Q$) 都是公式;
+      \item 如果 $\alpha$ 和 $\beta$ 是公式,
+        则 $(\alpha)$、$(\lnot \alpha)$、$(\alpha \land \beta)$、$(\alpha \lor \beta)$、
         $(\alpha \to \beta)$ 和 $(\alpha \leftrightarrow \beta)$ 也是公式;
       \item \red{除此之外, 别无其它。}
     \end{enumerate}
   \end{definition}
+
+  \pause
+  \[
+    (((B \to (A \to C)) \leftrightarrow (((\lnot B) \land A) \to C)))
+  \]
+  \pause
+  \[
+    (((B \to (A \to C)) \oplus (((\lnot B) \land A) \to C)))
+  \]
+  \pause
+  \[
+    (((B \to (A \to C)) \leftrightarrow (((\lnot B) \land A \to C)))
+  \]
 \end{frame}
 %%%%%%%%%%%%%%%%%%%%
 
 %%%%%%%%%%%%%%%%%%%%
 \begin{frame}{}
+  \begin{definition}[公式 (Formula)]
+    \begin{enumerate}[(1)]
+      \setlength{\itemsep}{8pt}
+      \item 每个命题符号 ($P$、$Q$) 都是公式;
+      \item 如果 $\alpha$ 和 $\beta$ 是公式,
+        则 $(\alpha)$、$(\lnot \alpha)$、$(\alpha \land \beta)$、$(\alpha \lor \beta)$、
+        $(\alpha \to \beta)$ 和 $(\alpha \leftrightarrow \beta)$ 也是公式;
+      \item \red{除此之外, 别无其它。}
+    \end{enumerate}
+  \end{definition}
+
+  \pause
+  \vspace{1em}
   \begin{lemma}[公式的括号匹配性质]
     每个公式中左右括号的数目相同。
   \end{lemma}
 
   \pause
-  \vspace{0.60cm}
+  \vspace{0.20cm}
   \begin{center}
     \red{\large \bf 数学归纳法}
 
@@ -108,8 +140,8 @@
 
 %%%%%%%%%%%%%%%%%%%%
 \begin{frame}{}
-  \begin{theorem}[归纳原理]
-    令 $P(\alpha)$ 为一个关于公式的性质。假设
+  \begin{theorem}[关于公式的归纳原理]
+    令 $P(\alpha)$ 为一个关于公式的性质。假设 \\[3pt]
     \begin{enumerate}[(1)]
       \setlength{\itemsep}{8pt}
       \item 对所有的命题符号 $A_{i}$, 性质 $P(A_{i})$ 成立; 并且
@@ -124,7 +156,7 @@
 %%%%%%%%%%%%%%%%%%%%
 \begin{frame}{}
   \begin{definition}[公式的长度]
-    公式$\alpha$的长度 $|\alpha|$ 定义如下:
+    公式$\alpha$的长度 $|\alpha|$ 定义如下: \\[3pt]
     \begin{enumerate}[(1)]
       \setlength{\itemsep}{8pt}
       \item 如果 $\alpha$ 是命题符号, 则 $|\alpha| = 1$;
@@ -135,7 +167,7 @@
 
   \pause
   \vspace{0.30cm}
-  \begin{exampleblock}{作业题}
+  \begin{exampleblock}{小小的练习一下}
     假设公式 $\alpha$ 中不含 ``$\lnot$'' 符号。
 
     请证明, $\alpha$ 中超过四分之一的符号是命题符号。
@@ -145,31 +177,40 @@
 
 %%%%%%%%%%%%%%%%%%%%
 \begin{frame}{}
+  \[
+    (((B \to (A \to C)) \leftrightarrow (((\lnot B) \land A) \to C)))
+  \]
+
+  \pause
+  \vspace{0.20cm}
   \begin{center}
     关于``公式''的\blue{\bf 约定}
-
-    \vspace{0.60cm}
     \begin{columns}
       \column{0.15\textwidth}
       \column{0.70\textwidth}
         \begin{itemize}
           \setlength{\itemsep}{6pt}
           \item 最外层的括号可以省略
+            \[
+              (B \to (A \to C)) \leftrightarrow (((\lnot B) \land A) \to C)
+            \]
           \item 优先级: $\lnot$, $\land$, $\lor$, $\to$, $\leftrightarrow$
-          \item 结合性: 右结合 ($\alpha \land \beta \land \gamma$,
-            $\alpha \to \beta \to \gamma$)
+            \[
+              (B \to (A \to C)) \leftrightarrow (\blue{\lnot B \land A} \to C)
+            \]
+          \item 结合性: 二元联词 $\ast$ 是右结合的
+            \[
+              (\blue{B \to A \to C}) \leftrightarrow (\lnot B \land A \to C)
+            \]
         \end{itemize}
       \column{0.15\textwidth}
     \end{columns}
 
     \pause
-    \vspace{1.00cm}
+    \vspace{1em}
     \red{不要过分依赖这些约定; 尽情地使用括号吧}
-
     \[
-      \xout{P \land Q \to R}
-    \]
-    \[
+      \xout{P \land Q \to R} \pause \qquad
       (P \land Q) \to R
     \]
   \end{center}

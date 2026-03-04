@@ -2,9 +2,11 @@
 
 %%%%%%%%%%%%%%%%%%%%
 \begin{frame}{}
-  \fig{width = 0.60\textwidth}{figs/syntax-semantics}
   \begin{center}
-    命题逻辑的语义
+    {\Large ``再讲语义''}
+
+    \vspace{0.30cm}
+    \fig{width = 0.60\textwidth}{figs/syntax-semantics}
   \end{center}
 \end{frame}
 %%%%%%%%%%%%%%%%%%%%
@@ -12,10 +14,12 @@
 %%%%%%%%%%%%%%%%%%%%
 \begin{frame}{}
   \begin{center}
-    命题逻辑公式的\blue{\bf 语义}就是该公式的\red{``真 ($T/1/\top$)''、``假 ($F/0/\bot$)''}值。
+    \fbox{
+      命题逻辑公式的\blue{\bf 语义}就是该公式的 \red{``真 ($T/1/\top$)''、``假 ($F/0/\bot$)''} 值。
+    }
 
     \[
-      \alpha = (((B \to (A \to C)) \leftrightarrow ((B \land A) \to C)))
+      \alpha = (B \to (A \to C)) \leftrightarrow ((B \land A) \to C)
     \]
 
     \pause
@@ -39,7 +43,7 @@
 %%%%%%%%%%%%%%%%%%%%
 \begin{frame}{}
   \begin{definition}[真值指派 ($v$)]
-    令 $S$ 为一个命题符号的集合。
+    令 $S$ 为一个命题符号的集合。\\[3pt]
     $S$ 上的一个\red{\bf 真值指派} $v$ 是一个从 $S$ 到真假值的映射
     \[
       v: S \to \set{T, F}.
@@ -49,7 +53,7 @@
   \pause
   \vspace{0.30cm}
   \[
-    \alpha = (((B \to (A \to C)) \leftrightarrow ((B \land A) \to C)))
+    \alpha = (B \to (A \to C)) \leftrightarrow ((B \land A) \to C)
   \]
 
   \[
@@ -61,7 +65,7 @@
 %%%%%%%%%%%%%%%%%%%%
 \begin{frame}{}
   \begin{center}
-    使用\red{\bf 真值表}定义\blue{\bf 逻辑联词的语义}
+    使用\red{\bf 真值表}定义\red{\bf 逻辑联词的语义}
 
     \vspace{0.30cm}
     \begin{definition}[真值表 (Truth Table)]
@@ -70,6 +74,12 @@
 
     \vspace{0.60cm}
     ``如果中国足球队夺冠, 我就好好学习''
+
+    \pause
+    \[
+      (A \land B) \to B \pause \qquad \teal{v(A) = F, v(B) = T};
+        \pause \qquad \brown{v(B) = F}
+    \]
   \end{center}
 \end{frame}
 %%%%%%%%%%%%%%%%%%%%
@@ -77,7 +87,7 @@
 %%%%%%%%%%%%%%%%%%%%
 \begin{frame}{}
   \[
-    \alpha = (((B \to (A \to C)) \leftrightarrow ((B \land A) \to C)))
+    \alpha = (B \to (A \to C)) \leftrightarrow ((B \land A) \to C)
   \]
 
   \[
