@@ -454,6 +454,7 @@
   \]
 
   \pause
+  TODO: $\lor$-elim
   \vspace{0.60cm}
   \[
     \nd{\alpha \lor \beta \qquad \alpha \to \gamma \qquad \beta \to \gamma}{\gamma}{\lor\text{-elim; (分情况分析)}}
@@ -470,6 +471,7 @@
   \end{exampleblock}
 
   \pause
+  TODO: $\lor$-elim
   \vspace{0.50cm}
   \[
     \ndnoname{p \lor q \qquad p \to q \lor p \qquad q \to q \lor p}{q \lor p}
@@ -479,23 +481,112 @@
 
 %%%%%%%%%%%%%%%%%%%%
 \begin{frame}{}
+  % Example 1.16
+  % Sequent: q \to r \vdash p \lor q \to p \lor r
   \begin{exampleblock}{``$\lor$''-推理规则的应用}
     \[
       q \to r \vdash (p \lor q) \to (p \lor r)
     \]
   \end{exampleblock}
+
+  \pause
+  \vspace{0.50cm}
+  \begin{proof}
+    \begin{logicproof}{3}
+      q \to r & premise \\
+      \begin{subproof}
+        p \lor q & assumption \\
+        \begin{subproof}
+          p & assumption \\
+          p \lor r & $\lor\introleft$ 3
+        \end{subproof}
+        \begin{subproof}
+          q & assumption \\
+          r & $\to\elim$ 1, 5 \\
+          p \lor r & $\lor\introright$ 6
+        \end{subproof}
+        p \lor r & $\lor\elim$ 2, 3--4, 5--7
+      \end{subproof}
+      (p \lor q) \to (p \lor r) & $\to\intro$ 2--8
+    \end{logicproof}
+  \end{proof}
 \end{frame}
 %%%%%%%%%%%%%%%%%%%%
 
 %%%%%%%%%%%%%%%%%%%%
 \begin{frame}{}
+  % Example 1.17
+  % Sequent: (p \lor q) \lor r \vdash p \lor (q \lor r)
+  \begin{exampleblock}{``$\lor$''-推理规则的应用}
+    \[
+      (p \lor q) \lor r \vdash p \lor (q \lor r)
+    \]
+  \end{exampleblock}
+
+  \pause
+  {\small
+  \begin{proof}
+    \vspace{-1em}
+    \begin{logicproof}{3}
+      (p \lor q) \lor r & premise \\
+      \begin{subproof}
+        p \lor q & assumption \\
+        \begin{subproof}
+          p & assumption \\
+          p \lor (q \lor r) & $\lor\introleft$ 3
+        \end{subproof}
+        \begin{subproof}
+          q & assumption \\
+          q \lor r & $\lor\introleft$ 5 \\
+          p \lor (q \lor r) & $\lor\introleft$ 6
+        \end{subproof}
+        p \lor (q \lor r) & $\lor\elim$ 2, 3--4, 5--7
+      \end{subproof}
+      \begin{subproof}
+        r & assumption \\
+        q \lor r & $\lor\introright$ 9 \\
+        p \lor (q \lor r) & $\lor\introleft$ 10
+      \end{subproof}
+      p \lor (q \lor r) & $\lor\elim$ 1, 2--8, 9--11
+    \end{logicproof}
+  \end{proof}}
+\end{frame}
+%%%%%%%%%%%%%%%%%%%%
+
+%%%%%%%%%%%%%%%%%%%%
+\begin{frame}{}
+  % Example 1.18
+  % Sequent: p \land (q \lor r) \vdash (p \land q) \lor (p \land r)
   \begin{exampleblock}{$\lor$-推理规则的应用}
     \[
       p \land (q \lor r) \vdash (p \land q) \lor (p \land r)
     \]
   \end{exampleblock}
 
-  \vspace{0.60cm}
+  \pause
+  \begin{proof}
+    \begin{logicproof}{3}
+      p \land (q \lor r) & premise \\
+      p & $\land\elimleft$ 1 \\
+      q \lor r & $\land\elimright$ 1 \\
+      \begin{subproof}
+        q & assumption \\
+        p \land q & $\land\intro$ 2, 4 \\
+        (p \land q) \lor (p \land r) & $\lor\introleft$ 5
+      \end{subproof}
+      \begin{subproof}
+        r & assumption \\
+        p \land r & $\land\intro$ 2, 7 \\
+        (p \land q) \lor (p \land r) & $\lor\introright$ 8
+      \end{subproof}
+      (p \land q) \lor (p \land r) & $\lor\elim$ 3, 4--6, 7--9
+    \end{logicproof}
+  \end{proof}
+\end{frame}
+%%%%%%%%%%%%%%%%%%%%
+
+%%%%%%%%%%%%%%%%%%%%
+\begin{frame}{}
   \begin{exampleblock}{$\lor$-推理规则的应用 (请自行练习)}
     \[
       (p \land q) \lor (p \land r) \vdash p \land (q \lor r)
@@ -506,6 +597,13 @@
 
 %%%%%%%%%%%%%%%%%%%%
 \begin{frame}{$\bot$}
+  \begin{definition}[Contradiction ($\bot$; Falsum, Falsehood)]
+    $\bot$ is a special formula of the form
+    $\alpha \land \lnot \alpha$ or $\lnot \alpha \land \alpha$,
+    where $\alpha$ is any formula.
+  \end{definition}
+
+  TODO: $\lnot$-intro
   \[
     \nd{\alpha \qquad \lnot \alpha}{\bot}{\bot\text{-intro}}
   \]
@@ -518,93 +616,165 @@
 
 %%%%%%%%%%%%%%%%%%%%
 \begin{frame}{}
+  % Example 1.20
+  % Sequent: \neg p \lor q \vdash p \to q
+  % Normalized from the source's side-by-side case layout.
   \begin{exampleblock}{``$\bot$''-推理规则的应用}
     \[
       \lnot p \lor q \vdash p \to q
     \]
   \end{exampleblock}
 
-  % \pause
-  % \vspace{0.60cm}
-  % \begin{exampleblock}{``$\bot$''-推理规则的应用}
-  %   \[
-  %     p \to q \vdash \lnot p \lor q
-  %   \]
-  % \end{exampleblock}
-\end{frame}
-%%%%%%%%%%%%%%%%%%%%
-
-%%%%%%%%%%%%%%%%%%%%
-\begin{frame}{$\lnot$}
-  \begin{gather*}
-    \nd{\alpha \to \bot}{\lnot \alpha}{\lnot\text{-intro}} \\[35pt]
-    \nd{\lnot \alpha}{\alpha \to \bot}{\lnot\text{-elim}}
-  \end{gather*}
+  \pause
+  {\small
+  \begin{proof}
+    \begin{logicproof}{3}
+      \neg p \lor q & premise \\
+      \begin{subproof}
+        \lnot p & premise \\
+      \begin{subproof}
+      p & assumption \\
+      \bot & $\lnot\elim$ 3, 2 \\
+      q & $\bot\elim$ 4
+      \end{subproof}
+      p \to q & $\to\intro$ 3--5
+      \end{subproof}
+      \begin{subproof}
+      q & premise \\
+      \begin{subproof}
+      p & assumption \\
+      q & copy\ 7
+      \end{subproof}
+      p \to q & $\to\intro$ 8--9
+      \end{subproof}
+      p \to q & $\lor\elim$ 1, 2--6, 7--10
+    \end{logicproof}
+  \end{proof}}
 \end{frame}
 %%%%%%%%%%%%%%%%%%%%
 
 %%%%%%%%%%%%%%%%%%%%
 \begin{frame}{}
+  % Example 1.21(a)
+  % Sequent: p \to q, p \to \lnot q \vdash \lnot p
   \begin{exampleblock}{``$\lnot$''-推理规则的应用}
     \[
       \set{p \to q, p \to \lnot q} \vdash \lnot p
     \]
   \end{exampleblock}
 
-  % \pause
-  % \vspace{0.60cm}
-  % \begin{exampleblock}{``$\lnot$''-推理规则的应用}
-  %   \[
-  %     \set{(p \land \lnot q) \to r, \lnot r, p} \vdash q
-  %   \]
-  % \end{exampleblock}
-  % \begin{center}
-  %   (提示: $\lnot \lnot q \vdash q$)
-  % \end{center}
+  \pause
+  \vspace{0.50cm}
+  \begin{proof}
+    \begin{logicproof}{1}
+      p \to q & premise \\
+      p \to \lnot q & premise \\
+      \begin{subproof}
+        p & assumption \\
+        q & $\to\elim$ 1, 3 \\
+        \lnot q & $\to\elim$ 2, 3 \\
+        \bot & $\lnot\elim$ 4, 5
+      \end{subproof}
+      \lnot p & $\lnot\intro$ 3--6
+    \end{logicproof}
+  \end{proof}
 \end{frame}
 %%%%%%%%%%%%%%%%%%%%
 
 %%%%%%%%%%%%%%%%%%%%
 \begin{frame}{}
+  % Example 1.21(b)
+  % Sequent: p \to \lnot p \vdash \lnot p
   \begin{exampleblock}{``$\lnot$''-推理规则的应用}
     \[
-      \nd{\lnot p \to \bot}{p}{
-        \text{RAA}/x \text{, reductio ad absurdum (反证法)}}
+      \set{p \to \lnot p} \vdash \lnot p
     \]
   \end{exampleblock}
 
-  \begin{center}
-    (提示: $\lnot \lnot q \vdash q$)
-  \end{center}
+  \pause
+  \vspace{0.50cm}
+  \begin{proof}
+    \begin{logicproof}{1}
+      p \to \lnot p & premise \\
+      \begin{subproof}
+        p & assumption \\
+        \lnot p & $\to\elim$ 1, 2 \\
+        \bot & $\lnot\elim$ 2, 3
+      \end{subproof}
+      \lnot p & $\lnot\intro$ 2--4
+    \end{logicproof}
+  \end{proof}
 \end{frame}
 %%%%%%%%%%%%%%%%%%%%
 
 %%%%%%%%%%%%%%%%%%%%
 \begin{frame}{}
-  \begin{exampleblock}{}
+  % Example 1.22
+  % Sequent: p \to (q \to r), p, \lnot r \vdash \lnot q
+  \begin{exampleblock}{``$\lnot$''-推理规则的应用}
     \[
-      \vdash p \lor \lnot p \qquad \text{(排中律; Law of the Excluded Middle (LEM))}
+      \set{p \to (q \to r), p, \lnot r} \vdash \lnot q
     \]
   \end{exampleblock}
 
-  \setcounter{equation}{0}
-  \begin{align}
-    \blue{\lnot (p \lor \lnot p)} & \qquad (\text{引入假设}) \\
-    \red{[p]}                     & \qquad (\text{引入假设}) \\
-    \red{p \lor \lnot p}          & \qquad (\lor\text{-intro-left}) \\
-    \red{\bot}                    & \qquad (\bot\text{-intro}) \\
-    \purple{\lnot p}              & \qquad (\lnot\text{-intro}) \\
-    \blue{p \lor \lnot p}         & \qquad (\lor\text{-intro-right}) \\
-    \blue{\bot}                   & \qquad (\bot\text{-intro}) \\
-    \lnot\lnot (p \lor \lnot p)   & \qquad (\lnot\text{-intro}) \\
-    p \lor \lnot p                & \qquad (\lnot\lnot\text{-elim})
-  \end{align}
+  \pause
+  \vspace{0.50cm}
+  \begin{proof}
+    \begin{logicproof}{1}
+      p \to (q \to r) & premise \\
+      p & premise \\
+      \lnot r & premise \\
+      \begin{subproof}
+        q & assumption \\
+        q \to r & $\to\elim$ 1, 2 \\
+        r & $\to\elim$ 5, 4 \\
+        \bot & $\lnot\elim$ 6, 3
+      \end{subproof}
+      \lnot q & $\lnot\intro$ 4--7
+    \end{logicproof}
+  \end{proof}
+\end{frame}
+%%%%%%%%%%%%%%%%%%%%
+
+%%%%%%%%%%%%%%%%%%%%
+\begin{frame}{}
+  % Example 1.23
+  % Sequent: p \land \lnot q \to r, \lnot r, p \vdash q
+  \begin{exampleblock}{``$\lnot$''-推理规则的应用}
+    \[
+      \set{(p \land \lnot q) \to r, \lnot r, p} \vdash q
+    \]
+  \end{exampleblock}
+
+  \pause
+  \vspace{0.50cm}
+  \begin{proof}
+    \begin{logicproof}{1}
+      (p \land \lnot q) \to r & premise \\
+      \lnot r & premise \\
+      p & premise \\
+      \begin{subproof}
+        \lnot q & assumption \\
+        p \land \lnot q & $\land\intro$ 3, 4 \\
+        r & $\to\elim$ 1, 5 \\
+        \bot & $\lnot\elim$ 6, 2
+      \end{subproof}
+      \lnot\lnot q & $\lnot\intro$ 4--7 \\
+      q & $\lnot\lnot\elim$ 8
+    \end{logicproof}
+  \end{proof}
 \end{frame}
 %%%%%%%%%%%%%%%%%%%%
 
 %%%%%%%%%%%%%%%%%%%%
 \begin{frame}{}
   \fig{width = 0.60\textwidth}{figs/natural-deduction-summary}
+\end{frame}
+%%%%%%%%%%%%%%%%%%%%
+
+%%%%%%%%%%%%%%%%%%%%
+\begin{frame}{}
+  \fig{width = 0.85\textwidth}{figs/natural-deduction-derived-rules}
 \end{frame}
 %%%%%%%%%%%%%%%%%%%%
 
@@ -652,18 +822,70 @@
 \end{frame}
 %%%%%%%%%%%%%%%%%%%%
 
-%%%%%%%%%%%%%%%%%%%%
-\begin{frame}{}
-  \begin{theorem}[命题逻辑的可靠性 (Soundness)]
-    如果 $\Sigma \vdash \alpha$, 则 $\Sigma \models \alpha$。
-  \end{theorem}
+% %%%%%%%%%%%%%%%%%%%%
+% \begin{frame}{$\lnot$}
+%   \begin{gather*}
+%     \nd{\alpha \to \bot}{\lnot \alpha}{\lnot\text{-intro}} \\[35pt]
+%     \nd{\lnot \alpha}{\alpha \to \bot}{\lnot\text{-elim}}
+%   \end{gather*}
+% \end{frame}
+% %%%%%%%%%%%%%%%%%%%%
 
-  \vspace{0.30cm}
-  \fig{width = 0.50\textwidth}{figs/syntax-semantics}
-  \vspace{0.30cm}
+% %%%%%%%%%%%%%%%%%%%%
+% \begin{frame}{}
+%   \begin{exampleblock}{``$\lnot$''-推理规则的应用}
+%     \[
+%       \set{p \to q, p \to \lnot q} \vdash \lnot p
+%     \]
+%   \end{exampleblock}
 
-  \begin{theorem}[命题逻辑的完备性 (Completeness)]
-    如果 $\Sigma \models \alpha$, 则 $\Sigma \vdash \alpha$。
-  \end{theorem}
-\end{frame}
-%%%%%%%%%%%%%%%%%%%%
+%   % \pause
+%   % \vspace{0.60cm}
+%   % \begin{exampleblock}{``$\lnot$''-推理规则的应用}
+%   %   \[
+%   %     \set{(p \land \lnot q) \to r, \lnot r, p} \vdash q
+%   %   \]
+%   % \end{exampleblock}
+%   % \begin{center}
+%   %   (提示: $\lnot \lnot q \vdash q$)
+%   % \end{center}
+% \end{frame}
+% %%%%%%%%%%%%%%%%%%%%
+
+% %%%%%%%%%%%%%%%%%%%%
+% \begin{frame}{}
+%   \begin{exampleblock}{``$\lnot$''-推理规则的应用}
+%     \[
+%       \nd{\lnot p \to \bot}{p}{
+%         \text{RAA}/x \text{, reductio ad absurdum (反证法)}}
+%     \]
+%   \end{exampleblock}
+
+%   \begin{center}
+%     (提示: $\lnot \lnot q \vdash q$)
+%   \end{center}
+% \end{frame}
+% %%%%%%%%%%%%%%%%%%%%
+
+% %%%%%%%%%%%%%%%%%%%%
+% \begin{frame}{}
+%   \begin{exampleblock}{}
+%     \[
+%       \vdash p \lor \lnot p \qquad \text{(排中律; Law of the Excluded Middle (LEM))}
+%     \]
+%   \end{exampleblock}
+
+%   \setcounter{equation}{0}
+%   \begin{align}
+%     \blue{\lnot (p \lor \lnot p)} & \qquad (\text{引入假设}) \\
+%     \red{[p]}                     & \qquad (\text{引入假设}) \\
+%     \red{p \lor \lnot p}          & \qquad (\lor\text{-intro-left}) \\
+%     \red{\bot}                    & \qquad (\bot\text{-intro}) \\
+%     \purple{\lnot p}              & \qquad (\lnot\text{-intro}) \\
+%     \blue{p \lor \lnot p}         & \qquad (\lor\text{-intro-right}) \\
+%     \blue{\bot}                   & \qquad (\bot\text{-intro}) \\
+%     \lnot\lnot (p \lor \lnot p)   & \qquad (\lnot\text{-intro}) \\
+%     p \lor \lnot p                & \qquad (\lnot\lnot\text{-elim})
+%   \end{align}
+% \end{frame}
+% %%%%%%%%%%%%%%%%%%%%

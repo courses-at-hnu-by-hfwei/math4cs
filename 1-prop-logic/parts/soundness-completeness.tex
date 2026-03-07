@@ -1,0 +1,43 @@
+% soundness-completeness.tex
+
+%%%%%%%%%%%%%%%%%%%%
+\begin{frame}{}
+  \begin{center}
+    \purple{\Large 就是现在, 将语法与语义统一起来!!!}
+
+		\vspace{-0.30cm}
+		\[
+			\blue{\Sigma \models \alpha}
+		\]
+		\vspace{-0.50cm}
+    \fig{width = 0.50\textwidth}{figs/syntax-semantics}
+		\[
+			\brown{\Sigma \vdash \alpha}
+		\]
+
+    \pause
+		\vspace{-1em}
+		\[
+			\brown{\Sigma \vdash \alpha} \implies \blue{\Sigma \models \alpha}
+			\pause\qquad\qquad
+			\blue{\Sigma \models \alpha} \implies \brown{\Sigma \vdash \alpha}
+		\]
+  \end{center}
+\end{frame}
+%%%%%%%%%%%%%%%%%%%%
+
+%%%%%%%%%%%%%%%%%%%%
+\begin{frame}{}
+  \begin{theorem}[命题逻辑的可靠性 (Soundness)]
+    如果 $\Sigma \vdash \alpha$, 则 $\Sigma \models \alpha$。
+  \end{theorem}
+
+  \vspace{0.30cm}
+  \fig{width = 0.50\textwidth}{figs/syntax-semantics}
+  \vspace{0.30cm}
+
+  \begin{theorem}[命题逻辑的完备性 (Completeness)]
+    如果 $\Sigma \models \alpha$, 则 $\Sigma \vdash \alpha$。
+  \end{theorem}
+\end{frame}
+%%%%%%%%%%%%%%%%%%%%
