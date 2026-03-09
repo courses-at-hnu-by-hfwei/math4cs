@@ -29,7 +29,7 @@
 %%%%%%%%%%%%%%%%%%%%
 \begin{frame}{}
   \begin{center}
-    从上往下看: 展示证明过程
+    \uncover<2->{从上往下看: 展示证明过程}
 
     \[
       \blue{\boxed{\nd{\alpha \qquad \beta \qquad \dots \quad\text{(前提)}}{\gamma \quad\text{(结论)}}{\text{规则名称}}}}
@@ -40,7 +40,7 @@
     \]
 
     \vspace{0.80cm}
-    从下往上看: 提供证明思路
+    \uncover<3->{从下往上看: 提供证明思路}
   \end{center}
 \end{frame}
 %%%%%%%%%%%%%%%%%%%%
@@ -67,11 +67,9 @@
 %%%%%%%%%%%%%%%%%%%%
 \begin{frame}{$\land$}
   \begin{gather*}
-    \nd{P \qquad Q}{P \land Q}{\land\text{-intro}} \\[35pt]
-    \pause
-    \nd{P \land Q}{P}{\land\text{-elim-left}} \\[35pt]
-    \pause
-    \nd{P \land Q}{Q}{\land\text{-elim-right}}
+    \uncover<1->{\nd{P \qquad Q}{P \land Q}{\land\text{-intro}}} \\[35pt]
+    \uncover<2->{\nd{P \land Q}{P}{\land\text{-elim-left}}} \\[35pt]
+    \uncover<3->{\nd{P \land Q}{Q}{\land\text{-elim-right}}}
   \end{gather*}
 \end{frame}
 %%%%%%%%%%%%%%%%%%%%
@@ -86,22 +84,39 @@
     \]
   \end{exampleblock}
 
+  \vspace{0.50cm}
+  \begin{proof}
+    \begin{logicproof}{1}
+      \uncover<2->{p \land q} & \uncover<2->{premise} \\
+      \uncover<2->{r} & \uncover<2->{premise} \\
+      \uncover<4->{q} & \uncover<5->{$\land \elimright$ 1} \\
+      \uncover<3->{q \land r} & \uncover<6->{$\land \intro$ 3,2}
+    \end{logicproof}
+  \end{proof}
+\end{frame}
+%%%%%%%%%%%%%%%%%%%%
+
+%%%%%%%%%%%%%%%%%%%%
+\begin{frame}{}
+  % Example 1.4-extended
+  % Sequent: (p \land q) \land r, s \land t \vdash q \land s
+  \begin{exampleblock}{``$\land$''推理规则的应用}
+    \[
+      \set{(p \land q) \land r, s \land t} \vdash q \land s
+    \]
+  \end{exampleblock}
+
   \pause
   \vspace{0.50cm}
   \begin{proof}
     \begin{logicproof}{1}
-      p \land q & premise \\
-      r & premise \\
-      q & $\land \elimright$ 1 \\
-      q \land r & $\land \intro$ 3,2
+      (p \land q) \land r & premise \\
+      s \land t & premise \\
+      p \land q & $\land \elimleft$ 1 \\
+      q & $\land \elimright$ 3 \\
+      s & $\land \elimleft$ 2 \\
+      q \land s & $\land \intro$ 4, 5
     \end{logicproof}
-
-    % \begin{align}
-    %   &p \land q &\text{前提} \label{eqn:pq} \\
-    %   &r &\text{前提} \label{eqn:r} \\
-    %   &q &\land{\text{-elim-right}\; (\ref{eqn:pq}}) \label{eqn:q} \\
-    %   &q \land r &\land{\text{-intro}}\; (\ref{eqn:q}), (\ref{eqn:r})
-    % \end{align}
   \end{proof}
 \end{frame}
 %%%%%%%%%%%%%%%%%%%%
