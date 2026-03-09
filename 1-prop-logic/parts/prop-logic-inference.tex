@@ -612,20 +612,22 @@
 %%%%%%%%%%%%%%%%%%%%
 
 %%%%%%%%%%%%%%%%%%%%
-\begin{frame}{$\bot$}
-  \begin{definition}[Contradiction ($\bot$; Falsum, Falsehood)]
+\begin{frame}{$\lnot\elim$}
+  \begin{definition}[Contradiction ($\bot$; {\it Falsum}, {\it Falsehood})]
     $\bot$ is a special formula of the form
-    $\alpha \land \lnot \alpha$ or $\lnot \alpha \land \alpha$,
+    $\alpha \land \lnot \alpha$ or $\lnot \alpha \land \alpha$, \\
     where $\alpha$ is any formula.
   \end{definition}
 
-  TODO: $\lnot$-intro
+	\pause
+	\vspace{0.30cm}
   \[
-    \nd{\alpha \qquad \lnot \alpha}{\bot}{\bot\text{-intro}}
+    \nd{\alpha \qquad \lnot \alpha}{\bot}{\lnot\elim}
   \]
 
+	\pause
   \[
-    \nd{\bot}{\alpha}{\bot\text{-elim}; \text{EFQ, ex falso quodlibet (Principle of Explosion)}}
+    \nd{\bot}{\alpha}{\bot\elim; \text{\blue{EFQ}: {\it ex falso quodlibet} (Principle of Explosion)}}
   \]
 \end{frame}
 %%%%%%%%%%%%%%%%%%%%
@@ -635,32 +637,33 @@
   % Example 1.20
   % Sequent: \neg p \lor q \vdash p \to q
   % Normalized from the source's side-by-side case layout.
-  \begin{exampleblock}{``$\bot$''-推理规则的应用}
+  \begin{exampleblock}{``$\lnot$'' 推理规则的应用}
     \[
       \lnot p \lor q \vdash p \to q
     \]
   \end{exampleblock}
 
-  {\scriptsize
+	\vspace{-1em}
+  {\small
   \begin{proof}
     \begin{logicproof}{3}
       \uncover<2->{\neg p \lor q} & \uncover<2->{premise} \\
       \uncover<4->{\begin{subproof}
         \uncover<4->{\lnot p} & \uncover<4->{premise} \\
-      \uncover<6->{\begin{subproof}
-      \uncover<6->{p} & \uncover<6->{assumption} \\
-      \uncover<7->{\bot} & \uncover<7->{$\lnot\elim$ 3, 2} \\
-      \uncover<8->{q} & \uncover<8->{$\bot\elim$ 4}
-      \end{subproof}}
-      \uncover<5->{p \to q} & \uncover<9->{$\to\intro$ 3--5}
+					\uncover<6->{\begin{subproof}
+						\uncover<6->{p} & \uncover<6->{assumption} \\
+						\uncover<8->{\bot} & \uncover<8->{$\lnot\elim$ 3, 2} \\
+						\uncover<7->{q} & \uncover<8->{$\bot\elim$ 4}
+					\end{subproof}}
+				\uncover<5->{p \to q} & \uncover<9->{$\to\intro$ 3--5}
       \end{subproof}}
       \uncover<10->{\begin{subproof}
-      \uncover<10->{q} & \uncover<10->{premise} \\
-      \uncover<12->{\begin{subproof}
-      \uncover<12->{p} & \uncover<12->{assumption} \\
-      \uncover<13->{q} & \uncover<13->{copy\ 7}
-      \end{subproof}}
-      \uncover<11->{p \to q} & \uncover<14->{$\to\intro$ 8--9}
+				\uncover<10->{q} & \uncover<10->{premise} \\
+				\uncover<12->{\begin{subproof}
+					\uncover<12->{p} & \uncover<12->{assumption} \\
+					\uncover<13->{q} & \uncover<13->{copy\ 7}
+				\end{subproof}}
+				\uncover<11->{p \to q} & \uncover<14->{$\to\intro$ 8--9}
       \end{subproof}}
       \uncover<3->{p \to q} & \uncover<15->{$\lor\elim$ 1, 2--6, 7--10}
     \end{logicproof}
@@ -669,10 +672,26 @@
 %%%%%%%%%%%%%%%%%%%%
 
 %%%%%%%%%%%%%%%%%%%%
-\begin{frame}{}
+\begin{frame}{$\lnot\intro$}
+	\[
+		\nd{
+			\fbox{%
+				$\begin{array}{c}
+					\alpha \\[1mm]
+					\vdots \\[1mm]
+					\bot
+				\end{array}$%
+			}
+		}{\lnot \alpha}{\lnot\intro}
+	\]
+\end{frame}
+%%%%%%%%%%%%%%%%%%%%
+
+%%%%%%%%%%%%%%%%%%%%
+\begin{frame}{$\lnot\intro$}
   % Example 1.21(a)
   % Sequent: p \to q, p \to \lnot q \vdash \lnot p
-  \begin{exampleblock}{``$\lnot$''-推理规则的应用}
+  \begin{exampleblock}{``$\lnot\intro$'' 推理规则的应用}
     \[
       \set{p \to q, p \to \lnot q} \vdash \lnot p
     \]
@@ -699,24 +718,24 @@
 \begin{frame}{}
   % Example 1.21(b)
   % Sequent: p \to \lnot p \vdash \lnot p
-  \begin{exampleblock}{``$\lnot$''-推理规则的应用}
+  \begin{exampleblock}{``$\lnot\intro$'' 推理规则的应用 (请自行练习)}
     \[
       \set{p \to \lnot p} \vdash \lnot p
     \]
   \end{exampleblock}
 
-  \vspace{0.50cm}
-  \begin{proof}
-    \begin{logicproof}{1}
-      \uncover<2->{p \to \lnot p} & \uncover<2->{premise} \\
-      \uncover<4->{\begin{subproof}
-        \uncover<4->{p} & \uncover<4->{assumption} \\
-        \uncover<6->{\lnot p} & \uncover<6->{$\to\elim$ 1, 2} \\
-        \uncover<5->{\bot} & \uncover<7->{$\lnot\elim$ 2, 3}
-      \end{subproof}}
-      \uncover<3->{\lnot p} & \uncover<8->{$\lnot\intro$ 2--4}
-    \end{logicproof}
-  \end{proof}
+  % \vspace{0.50cm}
+  % \begin{proof}
+  %   \begin{logicproof}{1}
+  %     \uncover<2->{p \to \lnot p} & \uncover<2->{premise} \\
+  %     \uncover<4->{\begin{subproof}
+  %       \uncover<4->{p} & \uncover<4->{assumption} \\
+  %       \uncover<6->{\lnot p} & \uncover<6->{$\to\elim$ 1, 2} \\
+  %       \uncover<5->{\bot} & \uncover<7->{$\lnot\elim$ 2, 3}
+  %     \end{subproof}}
+  %     \uncover<3->{\lnot p} & \uncover<8->{$\lnot\intro$ 2--4}
+  %   \end{logicproof}
+  % \end{proof}
 \end{frame}
 %%%%%%%%%%%%%%%%%%%%
 
@@ -724,7 +743,7 @@
 \begin{frame}{}
   % Example 1.22
   % Sequent: p \to (q \to r), p, \lnot r \vdash \lnot q
-  \begin{exampleblock}{``$\lnot$''-推理规则的应用}
+  \begin{exampleblock}{``$\lnot\intro$'' 推理规则的应用}
     \[
       \set{p \to (q \to r), p, \lnot r} \vdash \lnot q
     \]
@@ -752,7 +771,7 @@
 \begin{frame}{}
   % Example 1.23
   % Sequent: p \land \lnot q \to r, \lnot r, p \vdash q
-  \begin{exampleblock}{``$\lnot$''-推理规则的应用}
+  \begin{exampleblock}{``$\lnot\intro$'' 推理规则的应用}
     \[
       \set{(p \land \lnot q) \to r, \lnot r, p} \vdash q
     \]
