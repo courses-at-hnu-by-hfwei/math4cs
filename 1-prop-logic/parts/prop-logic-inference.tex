@@ -85,7 +85,7 @@
 
 %%%%%%%%%%%%%%%%%%%%
 \begin{frame}{}
-  % Example 1.4-extended
+  % Example 1.6
   % Sequent: (p \land q) \land r, s \land t \vdash q \land s
   \begin{exampleblock}{``$\land$''推理规则的应用}
     \[
@@ -124,7 +124,7 @@
 \begin{frame}{}
   % Example 1.5
   % Sequent: p, \neg\neg(q \land r) \vdash \neg\neg p \land r
-  \begin{exampleblock}{``$\land$''推理规则的应用}
+  \begin{exampleblock}{``$\lnot\lnot$''推理规则的应用}
     \[
       \set{p, \lnot\lnot(q \land r)} \vdash \lnot\lnot p \land r
     \]
@@ -136,33 +136,9 @@
       \uncover<2->{p} & \uncover<2->{premise} \\
       \uncover<2->{\lnot\lnot(q \land r)} & \uncover<2->{premise} \\
       \uncover<4->{\lnot\lnot p} & \uncover<4->{$\lnot\lnot \intro$ 1} \\
-      \uncover<6->{q \land r} & \uncover<6->{$\lnot\lnot \elim$ 2} \\
-      \uncover<5->{r} & \uncover<5->{$\land \elimright$ 4} \\
+      \uncover<5->{q \land r} & \uncover<5->{$\lnot\lnot \elim$ 2} \\
+      \uncover<6->{r} & \uncover<6->{$\land \elimright$ 4} \\
       \uncover<3->{\lnot\lnot p \land r} & \uncover<7->{$\land \intro$ 3,5}
-    \end{logicproof}
-  \end{proof}
-\end{frame}
-%%%%%%%%%%%%%%%%%%%%
-
-%%%%%%%%%%%%%%%%%%%%
-\begin{frame}{}
-  % Example 1.6
-  % Sequent: (p \land q) \land r, s \land t \vdash q \land s
-  \begin{exampleblock}{``$\lnot\lnot$''推理规则的应用}
-    \[
-      \set{(p \land q) \land r, s \land t} \vdash q \land s
-    \]
-  \end{exampleblock}
-
-  \vspace{0.50cm}
-  \begin{proof}
-    \begin{logicproof}{1}
-      \uncover<2->{(p \land q) \land r} & \uncover<2->{premise} \\
-      \uncover<2->{s \land t} & \uncover<2->{premise} \\
-      \uncover<4->{p \land q} & \uncover<4->{$\land \elimleft$ 1} \\
-      \uncover<5->{q} & \uncover<5->{$\land \elimright$ 3} \\
-      \uncover<6->{s} & \uncover<6->{$\land \elimleft$ 2} \\
-      \uncover<3->{q \land s} & \uncover<7->{$\land \intro$ 4, 5}
     \end{logicproof}
   \end{proof}
 \end{frame}
