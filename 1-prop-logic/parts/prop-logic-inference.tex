@@ -89,8 +89,8 @@
     \begin{logicproof}{1}
       \uncover<2->{p \land q} & \uncover<2->{premise} \\
       \uncover<2->{r} & \uncover<2->{premise} \\
-      \uncover<4->{q} & \uncover<5->{$\land \elimright$ 1} \\
-      \uncover<3->{q \land r} & \uncover<6->{$\land \intro$ 3,2}
+      \uncover<4->{q} & \uncover<4->{$\land \elimright$ 1} \\
+      \uncover<3->{q \land r} & \uncover<5->{$\land \intro$ 3,2}
     \end{logicproof}
   \end{proof}
 \end{frame}
@@ -106,16 +106,15 @@
     \]
   \end{exampleblock}
 
-  \pause
   \vspace{0.50cm}
   \begin{proof}
     \begin{logicproof}{1}
-      (p \land q) \land r & premise \\
-      s \land t & premise \\
-      p \land q & $\land \elimleft$ 1 \\
-      q & $\land \elimright$ 3 \\
-      s & $\land \elimleft$ 2 \\
-      q \land s & $\land \intro$ 4, 5
+      \uncover<2->{(p \land q) \land r} & \uncover<2->{premise} \\
+      \uncover<2->{s \land t} & \uncover<2->{premise} \\
+      \uncover<4->{p \land q} & \uncover<4->{$\land \elimleft$ 1} \\
+      \uncover<5->{q} & \uncover<5->{$\land \elimright$ 3} \\
+      \uncover<6->{s} & \uncover<6->{$\land \elimleft$ 2} \\
+      \uncover<3->{q \land s} & \uncover<7->{$\land \intro$ 4, 5}
     \end{logicproof}
   \end{proof}
 \end{frame}
@@ -145,16 +144,15 @@
     \]
   \end{exampleblock}
 
-  \pause
   \vspace{0.50cm}
   \begin{proof}
     \begin{logicproof}{1}
-      p & premise \\
-      \lnot\lnot(q \land r) & premise \\
-      \lnot\lnot p & $\lnot\lnot \intro$ 1 \\
-      q \land r & $\lnot\lnot \elim$ 2 \\
-      r & $\land \elimright$ 4 \\
-      \lnot\lnot p \land r & $\land \intro$ 3,5
+      \uncover<2->{p} & \uncover<2->{premise} \\
+      \uncover<2->{\lnot\lnot(q \land r)} & \uncover<2->{premise} \\
+      \uncover<4->{\lnot\lnot p} & \uncover<4->{$\lnot\lnot \intro$ 1} \\
+      \uncover<6->{q \land r} & \uncover<6->{$\lnot\lnot \elim$ 2} \\
+      \uncover<5->{r} & \uncover<5->{$\land \elimright$ 4} \\
+      \uncover<3->{\lnot\lnot p \land r} & \uncover<7->{$\land \intro$ 3,5}
     \end{logicproof}
   \end{proof}
 \end{frame}
@@ -170,16 +168,15 @@
     \]
   \end{exampleblock}
 
-  \pause
   \vspace{0.50cm}
   \begin{proof}
     \begin{logicproof}{1}
-      (p \land q) \land r & premise \\
-      s \land t & premise \\
-      p \land q & $\land \elimleft$ 1 \\
-      q & $\land \elimright$ 3 \\
-      s & $\land \elimleft$ 2 \\
-      q \land s & $\land \intro$ 5, 6
+      \uncover<2->{(p \land q) \land r} & \uncover<2->{premise} \\
+      \uncover<2->{s \land t} & \uncover<2->{premise} \\
+      \uncover<4->{p \land q} & \uncover<4->{$\land \elimleft$ 1} \\
+      \uncover<5->{q} & \uncover<5->{$\land \elimright$ 3} \\
+      \uncover<6->{s} & \uncover<6->{$\land \elimleft$ 2} \\
+      \uncover<3->{q \land s} & \uncover<7->{$\land \intro$ 4, 5}
     \end{logicproof}
   \end{proof}
 \end{frame}
@@ -208,16 +205,15 @@
     \]
   \end{exampleblock}
 
-  \pause
   \vspace{0.50cm}
   \begin{proof}
     \begin{logicproof}{1}
-      p \to (q \to r) & premise \\
-      p \to q & premise \\
-      p & premise \\
-      q \to r & $\to\elim$ 1, 3 \\
-      q & $\to\elim$ 2, 3 \\
-      r & $\to\elim$ 4, 5
+      \uncover<2->{p \to (q \to r)} & \uncover<2->{premise} \\
+      \uncover<2->{p \to q} & \uncover<2->{premise} \\
+      \uncover<2->{p} & \uncover<2->{premise} \\
+      \uncover<4->{q \to r} & \uncover<4->{$\to\elim$ 1, 3} \\
+      \uncover<5->{q} & \uncover<5->{$\to\elim$ 2, 3} \\
+      \uncover<3->{r} & \uncover<6->{$\to\elim$ 4, 5}
     \end{logicproof}
   \end{proof}
 \end{frame}
@@ -231,15 +227,14 @@
     \]
   \end{exampleblock}
 
-  \pause
   \vspace{0.50cm}
   \begin{proof}
     \begin{logicproof}{1}
-      p \to (q \to r) & premise \\
-      p & premise \\
-      q \to r & $\to\elim$ 1, 3 \\
-      \lnot r & premise \\
-      \lnot q & $\text{MT}$ 3, 4
+      \uncover<2->{p \to (q \to r)} & \uncover<2->{premise} \\
+      \uncover<2->{p} & \uncover<2->{premise} \\
+      \uncover<4->{q \to r} & \uncover<4->{$\to\elim$ 1, 2} \\
+      \uncover<2->{\lnot r} & \uncover<2->{premise} \\
+      \uncover<3->{\lnot q} & \uncover<5->{$\text{MT}$ 3, 4}
     \end{logicproof}
   \end{proof}
 \end{frame}
@@ -255,14 +250,13 @@
     \]
   \end{exampleblock}
 
-  \pause
   \vspace{0.50cm}
   \begin{proof}
     \begin{logicproof}{1}
-      \lnot p \to q & premise \\
-      \lnot q & premise \\
-      \lnot\lnot p & $\text{MT}$ 1, 2 \\
-      p & $\lnot\lnot\elim$ 3
+      \uncover<2->{\lnot p \to q} & \uncover<2->{premise} \\
+      \uncover<2->{\lnot q} & \uncover<2->{premise} \\
+      \uncover<4->{\lnot\lnot p} & \uncover<4->{$\text{MT}$ 1, 2} \\
+      \uncover<3->{p} & \uncover<5->{$\lnot\lnot\elim$ 3}
     \end{logicproof}
   \end{proof}
 \end{frame}
@@ -278,14 +272,13 @@
     \]
   \end{exampleblock}
 
-  \pause
   \vspace{0.50cm}
   \begin{proof}
     \begin{logicproof}{1}
-      p \to \lnot q & premise \\
-      q & premise \\
-      \lnot\lnot q & $\lnot\lnot\intro$ 2 \\
-      \lnot p & $\text{MT}$ 1, 3
+      \uncover<2->{p \to \lnot q} & \uncover<2->{premise} \\
+      \uncover<2->{q} & \uncover<2->{premise} \\
+      \uncover<4->{\lnot\lnot q} & \uncover<4->{$\lnot\lnot\intro$ 2} \\
+      \uncover<3->{\lnot p} & \uncover<5->{$\text{MT}$ 1, 3}
     \end{logicproof}
   \end{proof}
 \end{frame}
@@ -321,17 +314,16 @@
     \]
   \end{exampleblock}
 
-  \pause
   \vspace{0.50cm}
   \begin{proof}
     \begin{logicproof}{2}
-      \lnot q \to \lnot p & premise \\
-      \begin{subproof}
-        p & assumption \\
-        \lnot\lnot p & $\lnot\lnot\intro$ 2 \\
-        \lnot\lnot q & $\text{MT}$ 1, 3
-      \end{subproof}
-      p \to \lnot\lnot q & $\to\intro$ 2--4
+      \uncover<2->{\lnot q \to \lnot p} & \uncover<2->{premise} \\
+      \uncover<4->{\begin{subproof}
+        \uncover<4->{p} & \uncover<4->{assumption} \\
+        \uncover<6->{\lnot\lnot p} & \uncover<6->{$\lnot\lnot\intro$ 2} \\
+        \uncover<5->{\lnot\lnot q} & \uncover<5->{$\text{MT}$ 1, 3}
+      \end{subproof}}
+      \uncover<3->{p \to \lnot\lnot q} & \uncover<7->{$\to\intro$ 2--4}
     \end{logicproof}
   \end{proof}
 \end{frame}
@@ -347,27 +339,27 @@
     \]
   \end{exampleblock}
 
-  \pause
+  {\small
   \begin{proof}
     \begin{logicproof}{3}
-      \begin{subproof}
-        q \to r & assumption \\
-        \begin{subproof}
-          \lnot q \to \lnot p & assumption \\
-          \begin{subproof}
-            p & assumption \\
-            \lnot\lnot p & $\lnot\lnot\intro$ 3 \\
-            \lnot\lnot q & $\text{MT}$ 2, 4 \\
-            q & $\lnot\lnot\elim$ 5 \\
-            r & $\to\elim$ 1, 6
-          \end{subproof}
-          p \to r & $\to\intro$ 3--7
-        \end{subproof}
-        (\lnot q \to \lnot p) \to (p \to r) & $\to\intro$ 2--8
-      \end{subproof}
-      (q \to r) \to ((\lnot q \to \lnot p) \to (p \to r)) & $\to\intro$ 1--9
+      \uncover<3->{\begin{subproof}
+        \uncover<3->{q \to r} & \uncover<3->{assumption} \\
+        \uncover<5->{\begin{subproof}
+          \uncover<5->{\lnot q \to \lnot p} & \uncover<5->{assumption} \\
+          \uncover<7->{\begin{subproof}
+            \uncover<7->{p} & \uncover<7->{assumption} \\
+            \uncover<9->{\lnot\lnot p} & \uncover<9->{$\lnot\lnot\intro$ 3} \\
+            \uncover<10->{\lnot\lnot q} & \uncover<10->{$\text{MT}$ 2, 4} \\
+            \uncover<11->{q} & \uncover<11->{$\lnot\lnot\elim$ 5} \\
+            \uncover<8->{r} & \uncover<12->{$\to\elim$ 1, 6}
+          \end{subproof}}
+          \uncover<6->{p \to r} & \uncover<13->{$\to\intro$ 3--7}
+        \end{subproof}}
+        \uncover<4->{(\lnot q \to \lnot p) \to (p \to r)} & \uncover<14->{$\to\intro$ 2--8}
+      \end{subproof}}
+      \uncover<2->{(q \to r) \to ((\lnot q \to \lnot p) \to (p \to r))} & \uncover<15->{$\to\intro$ 1--9}
     \end{logicproof}
-  \end{proof}
+  \end{proof}}
 \end{frame}
 %%%%%%%%%%%%%%%%%%%%
 
@@ -381,21 +373,20 @@
     \]
   \end{exampleblock}
 
-  \pause
   \vspace{0.50cm}
   \begin{proof}
     \begin{logicproof}{3}
-      p \land q \to r & premise \\
-      \begin{subproof}
-        p & assumption \\
-        \begin{subproof}
-          q & assumption \\
-          p \land q & $\land\intro$ 2, 3 \\
-          r & $\to\elim$ 1, 4
-        \end{subproof}
-        q \to r & $\to\intro$ 3--5
-      \end{subproof}
-      p \to (q \to r) & $\to\intro$ 2--6
+      \uncover<2->{p \land q \to r} & \uncover<2->{premise} \\
+      \uncover<4->{\begin{subproof}
+        \uncover<4->{p} & \uncover<4->{assumption} \\
+        \uncover<6->{\begin{subproof}
+          \uncover<6->{q} & \uncover<6->{assumption} \\
+          \uncover<8->{p \land q} & \uncover<8->{$\land\intro$ 2, 3} \\
+          \uncover<7->{r} & \uncover<9->{$\to\elim$ 1, 4}
+        \end{subproof}}
+        \uncover<5->{q \to r} & \uncover<10->{$\to\intro$ 3--5}
+      \end{subproof}}
+      \uncover<3->{p \to (q \to r)} & \uncover<11->{$\to\intro$ 2--6}
     \end{logicproof}
   \end{proof}
 \end{frame}
@@ -411,19 +402,18 @@
     \]
   \end{exampleblock}
 
-  \pause
   \vspace{0.50cm}
   \begin{proof}
     \begin{logicproof}{3}
-      p \to (q \to r) & premise \\
-      \begin{subproof}
-        p \land q & assumption \\
-        p & $\land\elimleft$ 2 \\
-        q & $\land\elimright$ 2 \\
-        q \to r & $\to\elim$ 1, 4 \\
-        r & $\to\elim$ 5, 3
-      \end{subproof}
-      p \land q \to r & $\to\intro$ 2--6
+      \uncover<2->{p \to (q \to r)} & \uncover<2->{premise} \\
+      \uncover<4->{\begin{subproof}
+        \uncover<4->{p \land q} & \uncover<4->{assumption} \\
+        \uncover<6->{p} & \uncover<6->{$\land\elimleft$ 2} \\
+        \uncover<7->{q} & \uncover<7->{$\land\elimright$ 2} \\
+        \uncover<8->{q \to r} & \uncover<8->{$\to\elim$ 1, 3} \\
+        \uncover<5->{r} & \uncover<9->{$\to\elim$ 5, 4}
+      \end{subproof}}
+      \uncover<3->{p \land q \to r} & \uncover<10->{$\to\intro$ 2--6}
     \end{logicproof}
   \end{proof}
 \end{frame}
@@ -439,19 +429,18 @@
     \]
   \end{exampleblock}
 
-  \pause
   \vspace{0.50cm}
   \begin{proof}
     \begin{logicproof}{3}
-      p \to q & premise \\
-      \begin{subproof}
-        p \land r & assumption \\
-        p & $\land\elimleft$ 2 \\
-        r & $\land\elimright$ 2 \\
-        q & $\to\elim$ 1, 3 \\
-        q \land r & $\land\intro$ 5, 4
-      \end{subproof}
-      (p \land r) \to (q \land r) & $\to\intro$ 2--6
+      \uncover<2->{p \to q} & \uncover<2->{premise} \\
+      \uncover<4->{\begin{subproof}
+        \uncover<4->{p \land r} & \uncover<4->{assumption} \\
+        \uncover<8->{p} & \uncover<8->{$\land\elimleft$ 2} \\
+        \uncover<7->{r} & \uncover<7->{$\land\elimright$ 2} \\
+        \uncover<6->{q} & \uncover<9->{$\to\elim$ 1, 3} \\
+        \uncover<5->{q \land r} & \uncover<10->{$\land\intro$ 5, 4}
+      \end{subproof}}
+      \uncover<3->{(p \land r) \to (q \land r)} & \uncover<11->{$\to\intro$ 2--6}
     \end{logicproof}
   \end{proof}
 \end{frame}
@@ -485,11 +474,10 @@
     \]
   \end{exampleblock}
 
-  \pause
   TODO: $\lor$-elim
   \vspace{0.50cm}
   \[
-    \ndnoname{p \lor q \qquad p \to q \lor p \qquad q \to q \lor p}{q \lor p}
+    \ndnoname{\uncover<2->{p \lor q} \qquad \uncover<4->{p \to q \lor p} \qquad \uncover<5->{q \to q \lor p}}{\uncover<3->{q \lor p}}
   \]
 \end{frame}
 %%%%%%%%%%%%%%%%%%%%
@@ -504,27 +492,27 @@
     \]
   \end{exampleblock}
 
-  \pause
   \vspace{0.50cm}
+  {\small
   \begin{proof}
     \begin{logicproof}{3}
-      q \to r & premise \\
-      \begin{subproof}
-        p \lor q & assumption \\
-        \begin{subproof}
-          p & assumption \\
-          p \lor r & $\lor\introleft$ 3
-        \end{subproof}
-        \begin{subproof}
-          q & assumption \\
-          r & $\to\elim$ 1, 5 \\
-          p \lor r & $\lor\introright$ 6
-        \end{subproof}
-        p \lor r & $\lor\elim$ 2, 3--4, 5--7
-      \end{subproof}
-      (p \lor q) \to (p \lor r) & $\to\intro$ 2--8
+      \uncover<2->{q \to r} & \uncover<2->{premise} \\
+      \uncover<4->{\begin{subproof}
+        \uncover<4->{p \lor q} & \uncover<4->{assumption} \\
+        \uncover<6->{\begin{subproof}
+          \uncover<6->{p} & \uncover<6->{assumption} \\
+          \uncover<7->{p \lor r} & \uncover<8->{$\lor\introleft$ 3}
+        \end{subproof}}
+        \uncover<9->{\begin{subproof}
+          \uncover<9->{q} & \uncover<9->{assumption} \\
+          \uncover<11->{r} & \uncover<11->{$\to\elim$ 1, 5} \\
+          \uncover<10->{p \lor r} & \uncover<12->{$\lor\introright$ 6}
+        \end{subproof}}
+        \uncover<5->{p \lor r} & \uncover<13->{$\lor\elim$ 2, 3--4, 5--7}
+      \end{subproof}}
+      \uncover<3->{(p \lor q) \to (p \lor r)} & \uncover<14->{$\to\intro$ 2--8}
     \end{logicproof}
-  \end{proof}
+  \end{proof}}
 \end{frame}
 %%%%%%%%%%%%%%%%%%%%
 
@@ -538,31 +526,30 @@
     \]
   \end{exampleblock}
 
-  \pause
-  {\small
+  {\scriptsize
   \begin{proof}
     \vspace{-1em}
     \begin{logicproof}{3}
-      (p \lor q) \lor r & premise \\
-      \begin{subproof}
-        p \lor q & assumption \\
-        \begin{subproof}
-          p & assumption \\
-          p \lor (q \lor r) & $\lor\introleft$ 3
-        \end{subproof}
-        \begin{subproof}
-          q & assumption \\
-          q \lor r & $\lor\introleft$ 5 \\
-          p \lor (q \lor r) & $\lor\introleft$ 6
-        \end{subproof}
-        p \lor (q \lor r) & $\lor\elim$ 2, 3--4, 5--7
-      \end{subproof}
-      \begin{subproof}
-        r & assumption \\
-        q \lor r & $\lor\introright$ 9 \\
-        p \lor (q \lor r) & $\lor\introleft$ 10
-      \end{subproof}
-      p \lor (q \lor r) & $\lor\elim$ 1, 2--8, 9--11
+      \uncover<2->{(p \lor q) \lor r} & \uncover<2->{premise} \\
+      \uncover<4->{\begin{subproof}
+        \uncover<4->{p \lor q} & \uncover<4->{assumption} \\
+        \uncover<6->{\begin{subproof}
+          \uncover<6->{p} & \uncover<6->{assumption} \\
+          \uncover<7->{p \lor (q \lor r)} & \uncover<8->{$\lor\introleft$ 3}
+        \end{subproof}}
+        \uncover<9->{\begin{subproof}
+          \uncover<9->{q} & \uncover<9->{assumption} \\
+          \uncover<11->{q \lor r} & \uncover<11->{$\lor\introleft$ 5} \\
+          \uncover<10->{p \lor (q \lor r)} & \uncover<12->{$\lor\introright$ 6}
+        \end{subproof}}
+        \uncover<5->{p \lor (q \lor r)} & \uncover<13->{$\lor\elim$ 2, 3--4, 5--7}
+      \end{subproof}}
+      \uncover<14->{\begin{subproof}
+        \uncover<14->{r} & \uncover<14->{assumption} \\
+        \uncover<16->{q \lor r} & \uncover<16->{$\lor\introright$ 9} \\
+        \uncover<15->{p \lor (q \lor r)} & \uncover<17->{$\lor\introright$ 10}
+      \end{subproof}}
+      \uncover<3->{p \lor (q \lor r)} & \uncover<18->{$\lor\elim$ 1, 2--8, 9--11}
     \end{logicproof}
   \end{proof}}
 \end{frame}
@@ -578,25 +565,26 @@
     \]
   \end{exampleblock}
 
-  \pause
+  {\small
   \begin{proof}
     \begin{logicproof}{3}
-      p \land (q \lor r) & premise \\
-      p & $\land\elimleft$ 1 \\
-      q \lor r & $\land\elimright$ 1 \\
-      \begin{subproof}
-        q & assumption \\
-        p \land q & $\land\intro$ 2, 4 \\
-        (p \land q) \lor (p \land r) & $\lor\introleft$ 5
-      \end{subproof}
-      \begin{subproof}
-        r & assumption \\
-        p \land r & $\land\intro$ 2, 7 \\
-        (p \land q) \lor (p \land r) & $\lor\introright$ 8
-      \end{subproof}
-      (p \land q) \lor (p \land r) & $\lor\elim$ 3, 4--6, 7--9
+      \uncover<2->{p \land (q \lor r)} & \uncover<2->{premise} \\
+      \uncover<4->{p} & \uncover<4->{$\land\elimleft$ 1} \\
+      \uncover<5->{q \lor r} & \uncover<5->{$\land\elimright$ 1} \\
+      \uncover<6->{\begin{subproof}
+        \uncover<6->{q} & \uncover<6->{assumption} \\
+        \uncover<7->{p \land q} & \uncover<7->{$\land\intro$ 2, 4} \\
+        \uncover<8->{(p \land q) \lor (p \land r)} & \uncover<9->{$\lor\introleft$ 5}
+      \end{subproof}}
+      \uncover<10->{\begin{subproof}
+        \uncover<10->{r} & \uncover<10->{assumption} \\
+        \uncover<11->{p \land r} & \uncover<11->{$\land\intro$ 2, 7} \\
+        \uncover<12->{(p \land q) \lor (p \land r)} & \uncover<13->{$\lor\introright$ 8}
+      \end{subproof}}
+      \uncover<3->{(p \land q) \lor (p \land r)} & \uncover<14->{$\lor\elim$ 3, 4--6, 7--9}
     \end{logicproof}
   \end{proof}
+  }
 \end{frame}
 %%%%%%%%%%%%%%%%%%%%
 
@@ -640,29 +628,28 @@
     \]
   \end{exampleblock}
 
-  \pause
-  {\small
+  {\scriptsize
   \begin{proof}
     \begin{logicproof}{3}
-      \neg p \lor q & premise \\
-      \begin{subproof}
-        \lnot p & premise \\
-      \begin{subproof}
-      p & assumption \\
-      \bot & $\lnot\elim$ 3, 2 \\
-      q & $\bot\elim$ 4
-      \end{subproof}
-      p \to q & $\to\intro$ 3--5
-      \end{subproof}
-      \begin{subproof}
-      q & premise \\
-      \begin{subproof}
-      p & assumption \\
-      q & copy\ 7
-      \end{subproof}
-      p \to q & $\to\intro$ 8--9
-      \end{subproof}
-      p \to q & $\lor\elim$ 1, 2--6, 7--10
+      \uncover<2->{\neg p \lor q} & \uncover<2->{premise} \\
+      \uncover<4->{\begin{subproof}
+        \uncover<4->{\lnot p} & \uncover<4->{premise} \\
+      \uncover<6->{\begin{subproof}
+      \uncover<6->{p} & \uncover<6->{assumption} \\
+      \uncover<8->{\bot} & \uncover<8->{$\lnot\elim$ 3, 2} \\
+      \uncover<9->{q} & \uncover<9->{$\bot\elim$ 4}
+      \end{subproof}}
+      \uncover<5->{p \to q} & \uncover<10->{$\to\intro$ 3--5}
+      \end{subproof}}
+      \uncover<11->{\begin{subproof}
+      \uncover<11->{q} & \uncover<11->{premise} \\
+      \uncover<13->{\begin{subproof}
+      \uncover<13->{p} & \uncover<13->{assumption} \\
+      \uncover<14->{q} & \uncover<14->{copy\ 7}
+      \end{subproof}}
+      \uncover<12->{p \to q} & \uncover<15->{$\to\intro$ 8--9}
+      \end{subproof}}
+      \uncover<3->{p \to q} & \uncover<16->{$\lor\elim$ 1, 2--6, 7--10}
     \end{logicproof}
   \end{proof}}
 \end{frame}
@@ -678,19 +665,18 @@
     \]
   \end{exampleblock}
 
-  \pause
   \vspace{0.50cm}
   \begin{proof}
     \begin{logicproof}{1}
-      p \to q & premise \\
-      p \to \lnot q & premise \\
-      \begin{subproof}
-        p & assumption \\
-        q & $\to\elim$ 1, 3 \\
-        \lnot q & $\to\elim$ 2, 3 \\
-        \bot & $\lnot\elim$ 4, 5
-      \end{subproof}
-      \lnot p & $\lnot\intro$ 3--6
+      \uncover<2->{p \to q} & \uncover<2->{premise} \\
+      \uncover<2->{p \to \lnot q} & \uncover<2->{premise} \\
+      \uncover<4->{\begin{subproof}
+        \uncover<4->{p} & \uncover<4->{assumption} \\
+        \uncover<6->{q} & \uncover<6->{$\to\elim$ 1, 3} \\
+        \uncover<7->{\lnot q} & \uncover<7->{$\to\elim$ 2, 3} \\
+        \uncover<5->{\bot} & \uncover<8->{$\lnot\elim$ 4, 5}
+      \end{subproof}}
+      \uncover<3->{\lnot p} & \uncover<9->{$\lnot\intro$ 3--6}
     \end{logicproof}
   \end{proof}
 \end{frame}
@@ -706,17 +692,16 @@
     \]
   \end{exampleblock}
 
-  \pause
   \vspace{0.50cm}
   \begin{proof}
     \begin{logicproof}{1}
-      p \to \lnot p & premise \\
-      \begin{subproof}
-        p & assumption \\
-        \lnot p & $\to\elim$ 1, 2 \\
-        \bot & $\lnot\elim$ 2, 3
-      \end{subproof}
-      \lnot p & $\lnot\intro$ 2--4
+      \uncover<2->{p \to \lnot p} & \uncover<2->{premise} \\
+      \uncover<4->{\begin{subproof}
+        \uncover<4->{p} & \uncover<4->{assumption} \\
+        \uncover<6->{\lnot p} & \uncover<6->{$\to\elim$ 1, 2} \\
+        \uncover<5->{\bot} & \uncover<7->{$\lnot\elim$ 2, 3}
+      \end{subproof}}
+      \uncover<3->{\lnot p} & \uncover<8->{$\lnot\intro$ 2--4}
     \end{logicproof}
   \end{proof}
 \end{frame}
@@ -732,20 +717,19 @@
     \]
   \end{exampleblock}
 
-  \pause
   \vspace{0.50cm}
   \begin{proof}
     \begin{logicproof}{1}
-      p \to (q \to r) & premise \\
-      p & premise \\
-      \lnot r & premise \\
-      \begin{subproof}
-        q & assumption \\
-        q \to r & $\to\elim$ 1, 2 \\
-        r & $\to\elim$ 5, 4 \\
-        \bot & $\lnot\elim$ 6, 3
-      \end{subproof}
-      \lnot q & $\lnot\intro$ 4--7
+      \uncover<2->{p \to (q \to r)} & \uncover<2->{premise} \\
+      \uncover<2->{p} & \uncover<2->{premise} \\
+      \uncover<2->{\lnot r} & \uncover<2->{premise} \\
+      \uncover<4->{\begin{subproof}
+        \uncover<4->{q} & \uncover<4->{assumption} \\
+        \uncover<6->{q \to r} & \uncover<6->{$\to\elim$ 1, 2} \\
+        \uncover<7->{r} & \uncover<7->{$\to\elim$ 5, 4} \\
+        \uncover<5->{\bot} & \uncover<8->{$\lnot\elim$ 6, 3}
+      \end{subproof}}
+      \uncover<3->{\lnot q} & \uncover<9->{$\lnot\intro$ 4--7}
     \end{logicproof}
   \end{proof}
 \end{frame}
@@ -761,23 +745,23 @@
     \]
   \end{exampleblock}
 
-  \pause
   \vspace{0.50cm}
+  {\small
   \begin{proof}
     \begin{logicproof}{1}
-      (p \land \lnot q) \to r & premise \\
-      \lnot r & premise \\
-      p & premise \\
-      \begin{subproof}
-        \lnot q & assumption \\
-        p \land \lnot q & $\land\intro$ 3, 4 \\
-        r & $\to\elim$ 1, 5 \\
-        \bot & $\lnot\elim$ 6, 2
-      \end{subproof}
-      \lnot\lnot q & $\lnot\intro$ 4--7 \\
-      q & $\lnot\lnot\elim$ 8
+      \uncover<2->{(p \land \lnot q) \to r} & \uncover<2->{premise} \\
+      \uncover<2->{\lnot r} & \uncover<2->{premise} \\
+      \uncover<2->{p} & \uncover<2->{premise} \\
+      \uncover<5->{\begin{subproof}
+        \uncover<5->{\lnot q} & \uncover<5->{assumption} \\
+        \uncover<7->{p \land \lnot q} & \uncover<7->{$\land\intro$ 3, 4} \\
+        \uncover<8->{r} & \uncover<8->{$\to\elim$ 1, 5} \\
+        \uncover<6->{\bot} & \uncover<9->{$\lnot\elim$ 6, 2}
+      \end{subproof}}
+      \uncover<4->{\lnot\lnot q} & \uncover<10->{$\lnot\intro$ 4--7} \\
+      \uncover<3->{q} & \uncover<11->{$\lnot\lnot\elim$ 8}
     \end{logicproof}
-  \end{proof}
+  \end{proof}}
 \end{frame}
 %%%%%%%%%%%%%%%%%%%%
 
@@ -840,7 +824,7 @@
 % %%%%%%%%%%%%%%%%%%%%
 % \begin{frame}{$\lnot$}
 %   \begin{gather*}
-%     \nd{\alpha \to \bot}{\lnot \alpha}{\lnot\text{-intro}} \\[35pt]
+%     \nd{\alpha \to \bot}{\lnot \alpha}{\lnot\text{-intro}} \\\[35pt]
 %     \nd{\lnot \alpha}{\alpha \to \bot}{\lnot\text{-elim}}
 %   \end{gather*}
 % \end{frame}
