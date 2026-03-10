@@ -63,28 +63,6 @@
 
 %%%%%%%%%%%%%%%%%%%%
 \begin{frame}{}
-  % Example 1.4
-  % Sequent: p \land q, r \vdash q \land r
-  \begin{exampleblock}{``$\land$''推理规则的应用}
-    \[
-      \set{p \land q, r} \vdash q \land r
-    \]
-  \end{exampleblock}
-
-  \vspace{0.50cm}
-  \begin{proof}
-    \begin{logicproof}{1}
-      \uncover<2->{p \land q} & \uncover<2->{premise} \\
-      \uncover<2->{r} & \uncover<2->{premise} \\
-      \uncover<4->{q} & \uncover<4->{$\land \elimright$ 1} \\
-      \uncover<3->{q \land r} & \uncover<5->{$\land \intro$ 3,2}
-    \end{logicproof}
-  \end{proof}
-\end{frame}
-%%%%%%%%%%%%%%%%%%%%
-
-%%%%%%%%%%%%%%%%%%%%
-\begin{frame}{}
   % Example 1.6
   % Sequent: (p \land q) \land r, s \land t \vdash q \land s
   \begin{exampleblock}{``$\land$''推理规则的应用}
@@ -104,6 +82,28 @@
       \uncover<3->{q \land s} & \uncover<7->{$\land \intro$ 4, 5}
     \end{logicproof}
   \end{proof}
+\end{frame}
+%%%%%%%%%%%%%%%%%%%%
+
+%%%%%%%%%%%%%%%%%%%%
+\begin{frame}{}
+  % Example 1.4
+  % Sequent: p \land q, r \vdash q \land r
+  \begin{exampleblock}{``$\land$''推理规则的应用}
+    \[
+      \set{p \land q, r} \vdash q \land r
+    \]
+  \end{exampleblock}
+
+  % \vspace{0.50cm}
+  % \begin{proof}
+  %   \begin{logicproof}{1}
+  %     \uncover<2->{p \land q} & \uncover<2->{premise} \\
+  %     \uncover<2->{r} & \uncover<2->{premise} \\
+  %     \uncover<4->{q} & \uncover<4->{$\land \elimright$ 1} \\
+  %     \uncover<3->{q \land r} & \uncover<5->{$\land \intro$ 3,2}
+  %   \end{logicproof}
+  % \end{proof}
 \end{frame}
 %%%%%%%%%%%%%%%%%%%%
 
@@ -216,15 +216,15 @@
     \]
   \end{exampleblock}
 
-  \vspace{0.50cm}
-  \begin{proof}
-    \begin{logicproof}{1}
-      \uncover<2->{\lnot p \to q} & \uncover<2->{premise} \\
-      \uncover<2->{\lnot q} & \uncover<2->{premise} \\
-      \uncover<4->{\red{\lnot\lnot p}} & \uncover<4->{\blue{$\text{MT}$ 1, 2}} \\
-      \uncover<3->{p} & \uncover<5->{$\lnot\lnot\elim$ 3}
-    \end{logicproof}
-  \end{proof}
+  % \vspace{0.50cm}
+  % \begin{proof}
+  %   \begin{logicproof}{1}
+  %     \uncover<2->{\lnot p \to q} & \uncover<2->{premise} \\
+  %     \uncover<2->{\lnot q} & \uncover<2->{premise} \\
+  %     \uncover<4->{\red{\lnot\lnot p}} & \uncover<4->{\blue{$\text{MT}$ 1, 2}} \\
+  %     \uncover<3->{p} & \uncover<5->{$\lnot\lnot\elim$ 3}
+  %   \end{logicproof}
+  % \end{proof}
 \end{frame}
 %%%%%%%%%%%%%%%%%%%%
 
@@ -238,15 +238,15 @@
     \]
   \end{exampleblock}
 
-  \vspace{0.50cm}
-  \begin{proof}
-    \begin{logicproof}{1}
-      \uncover<2->{p \to \lnot q} & \uncover<2->{premise} \\
-      \uncover<2->{q} & \uncover<2->{premise} \\
-      \uncover<4->{\red{\lnot\lnot q}} & \uncover<4->{\blue{$\lnot\lnot\intro$ 2}} \\
-      \uncover<3->{\lnot p} & \uncover<5->{$\text{MT}$ 1, 3}
-    \end{logicproof}
-  \end{proof}
+  % \vspace{0.50cm}
+  % \begin{proof}
+  %   \begin{logicproof}{1}
+  %     \uncover<2->{p \to \lnot q} & \uncover<2->{premise} \\
+  %     \uncover<2->{q} & \uncover<2->{premise} \\
+  %     \uncover<4->{\red{\lnot\lnot q}} & \uncover<4->{\blue{$\lnot\lnot\intro$ 2}} \\
+  %     \uncover<3->{\lnot p} & \uncover<5->{$\text{MT}$ 1, 3}
+  %   \end{logicproof}
+  % \end{proof}
 \end{frame}
 %%%%%%%%%%%%%%%%%%%%
 
@@ -254,9 +254,9 @@
 \begin{frame}{$\to\intro$}
 	\[
 		\nd{
-			\begin{array}{c}
-				\alpha \\ \vdots \\ \beta
-			\end{array}
+      \fbox{$\begin{array}{c}
+          \alpha \\ \vdots \\ \beta
+        \end{array}$}
 		}{\alpha \to \beta}{\to\text{-intro}}
 	\]
 
@@ -365,20 +365,20 @@
     \]
   \end{exampleblock}
 
-  \vspace{0.50cm}
-  \begin{proof}
-    \begin{logicproof}{3}
-      \uncover<2->{p \to (q \to r)} & \uncover<2->{premise} \\
-      \uncover<4->{\begin{subproof}
-        \uncover<4->{p \land q} & \uncover<4->{assumption} \\
-        \uncover<6->{p} & \uncover<6->{$\land\elimleft$ 2} \\
-        \uncover<7->{q} & \uncover<7->{$\land\elimright$ 2} \\
-        \uncover<8->{q \to r} & \uncover<8->{$\to\elim$ 1, 3} \\
-        \uncover<5->{r} & \uncover<9->{$\to\elim$ 5, 4}
-      \end{subproof}}
-      \uncover<3->{(p \land q) \to r} & \uncover<10->{$\to\intro$ 2--6}
-    \end{logicproof}
-  \end{proof}
+  % \vspace{0.50cm}
+  % \begin{proof}
+  %   \begin{logicproof}{3}
+  %     \uncover<2->{p \to (q \to r)} & \uncover<2->{premise} \\
+  %     \uncover<4->{\begin{subproof}
+  %       \uncover<4->{p \land q} & \uncover<4->{assumption} \\
+  %       \uncover<6->{p} & \uncover<6->{$\land\elimleft$ 2} \\
+  %       \uncover<7->{q} & \uncover<7->{$\land\elimright$ 2} \\
+  %       \uncover<8->{q \to r} & \uncover<8->{$\to\elim$ 1, 3} \\
+  %       \uncover<5->{r} & \uncover<9->{$\to\elim$ 5, 4}
+  %     \end{subproof}}
+  %     \uncover<3->{(p \land q) \to r} & \uncover<10->{$\to\intro$ 2--6}
+  %   \end{logicproof}
+  % \end{proof}
 \end{frame}
 %%%%%%%%%%%%%%%%%%%%
 
@@ -392,20 +392,20 @@
     \]
   \end{exampleblock}
 
-  \vspace{0.50cm}
-  \begin{proof}
-    \begin{logicproof}{3}
-      \uncover<2->{p \to q} & \uncover<2->{premise} \\
-      \uncover<4->{\begin{subproof}
-        \uncover<4->{p \land r} & \uncover<4->{assumption} \\
-        \uncover<8->{p} & \uncover<8->{$\land\elimleft$ 2} \\
-        \uncover<7->{r} & \uncover<7->{$\land\elimright$ 2} \\
-        \uncover<6->{q} & \uncover<9->{$\to\elim$ 1, 3} \\
-        \uncover<5->{q \land r} & \uncover<10->{$\land\intro$ 5, 4}
-      \end{subproof}}
-      \uncover<3->{(p \land r) \to (q \land r)} & \uncover<11->{$\to\intro$ 2--6}
-    \end{logicproof}
-  \end{proof}
+  % \vspace{0.50cm}
+  % \begin{proof}
+  %   \begin{logicproof}{3}
+  %     \uncover<2->{p \to q} & \uncover<2->{premise} \\
+  %     \uncover<4->{\begin{subproof}
+  %       \uncover<4->{p \land r} & \uncover<4->{assumption} \\
+  %       \uncover<8->{p} & \uncover<8->{$\land\elimleft$ 2} \\
+  %       \uncover<7->{r} & \uncover<7->{$\land\elimright$ 2} \\
+  %       \uncover<6->{q} & \uncover<9->{$\to\elim$ 1, 3} \\
+  %       \uncover<5->{q \land r} & \uncover<10->{$\land\intro$ 5, 4}
+  %     \end{subproof}}
+  %     \uncover<3->{(p \land r) \to (q \land r)} & \uncover<11->{$\to\intro$ 2--6}
+  %   \end{logicproof}
+  % \end{proof}
 \end{frame}
 %%%%%%%%%%%%%%%%%%%%
 
@@ -578,26 +578,26 @@
     \]
   \end{exampleblock}
 
-  {\small
-  \begin{proof}
-    \begin{logicproof}{3}
-      \uncover<2->{p \land (q \lor r)} & \uncover<2->{premise} \\
-      \uncover<4->{\blue{p}} & \uncover<4->{$\land\elimleft$ 1} \\
-      \uncover<5->{q \lor r} & \uncover<5->{$\land\elimright$ 1} \\
-      \uncover<6->{\begin{subproof}
-        \uncover<6->{q} & \uncover<6->{assumption} \\
-        \uncover<8->{\blue{p} \land q} & \uncover<8->{$\land\intro$ 2, 4} \\
-        \uncover<7->{(p \land q) \lor (p \land r)} & \uncover<9->{$\lor\introleft$ 5}
-      \end{subproof}}
-      \uncover<10->{\begin{subproof}
-        \uncover<10->{r} & \uncover<10->{assumption} \\
-        \uncover<12->{\blue{p} \land r} & \uncover<12->{$\land\intro$ 2, 7} \\
-        \uncover<11->{(p \land q) \lor (p \land r)} & \uncover<13->{$\lor\introright$ 8}
-      \end{subproof}}
-      \uncover<3->{(p \land q) \lor (p \land r)} & \uncover<14->{$\lor\elim$ 3, 4--6, 7--9}
-    \end{logicproof}
-  \end{proof}
-  }
+  % {\small
+  % \begin{proof}
+  %   \begin{logicproof}{3}
+  %     \uncover<2->{p \land (q \lor r)} & \uncover<2->{premise} \\
+  %     \uncover<4->{\blue{p}} & \uncover<4->{$\land\elimleft$ 1} \\
+  %     \uncover<5->{q \lor r} & \uncover<5->{$\land\elimright$ 1} \\
+  %     \uncover<6->{\begin{subproof}
+  %       \uncover<6->{q} & \uncover<6->{assumption} \\
+  %       \uncover<8->{\blue{p} \land q} & \uncover<8->{$\land\intro$ 2, 4} \\
+  %       \uncover<7->{(p \land q) \lor (p \land r)} & \uncover<9->{$\lor\introleft$ 5}
+  %     \end{subproof}}
+  %     \uncover<10->{\begin{subproof}
+  %       \uncover<10->{r} & \uncover<10->{assumption} \\
+  %       \uncover<12->{\blue{p} \land r} & \uncover<12->{$\land\intro$ 2, 7} \\
+  %       \uncover<11->{(p \land q) \lor (p \land r)} & \uncover<13->{$\lor\introright$ 8}
+  %     \end{subproof}}
+  %     \uncover<3->{(p \land q) \lor (p \land r)} & \uncover<14->{$\lor\elim$ 3, 4--6, 7--9}
+  %   \end{logicproof}
+  % \end{proof}
+  % }
 \end{frame}
 %%%%%%%%%%%%%%%%%%%%
 
@@ -637,7 +637,7 @@
   % Example 1.20
   % Sequent: \neg p \lor q \vdash p \to q
   % Normalized from the source's side-by-side case layout.
-  \begin{exampleblock}{``$\lnot$'' 推理规则的应用}
+  \begin{exampleblock}{``$\lnot\elim$'' 推理规则的应用}
     \[
       \lnot p \lor q \vdash p \to q
     \]
@@ -716,6 +716,36 @@
 
 %%%%%%%%%%%%%%%%%%%%
 \begin{frame}{}
+  % Example 1.23
+  % Sequent: p \land \lnot q \to r, \lnot r, p \vdash q
+  \begin{exampleblock}{``$\lnot\intro$'' 推理规则的应用}
+    \[
+      \set{(p \land \lnot q) \to r, \lnot r, p} \vdash q
+    \]
+  \end{exampleblock}
+
+  \vspace{0.50cm}
+  {\small
+  \begin{proof}
+    \begin{logicproof}{1}
+      \uncover<2->{(p \land \lnot q) \to r} & \uncover<2->{premise} \\
+      \uncover<2->{\lnot r} & \uncover<2->{premise} \\
+      \uncover<2->{p} & \uncover<2->{premise} \\
+      \uncover<5->{\begin{subproof}
+        \uncover<5->{\lnot q} & \uncover<5->{assumption} \\
+        \uncover<7->{p \land \lnot q} & \uncover<7->{$\land\intro$ 3, 4} \\
+        \uncover<8->{r} & \uncover<8->{$\to\elim$ 1, 5} \\
+        \uncover<6->{\bot} & \uncover<9->{$\lnot\elim$ 6, 2}
+      \end{subproof}}
+      \uncover<4->{\lnot\lnot q} & \uncover<10->{$\lnot\intro$ 4--7} \\
+      \uncover<3->{q} & \uncover<11->{$\lnot\lnot\elim$ 8}
+    \end{logicproof}
+  \end{proof}}
+\end{frame}
+%%%%%%%%%%%%%%%%%%%%
+
+%%%%%%%%%%%%%%%%%%%%
+\begin{frame}{}
   % Example 1.21(b)
   % Sequent: p \to \lnot p \vdash \lnot p
   \begin{exampleblock}{``$\lnot\intro$'' 推理规则的应用 (请自行练习)}
@@ -749,51 +779,21 @@
     \]
   \end{exampleblock}
 
-  \vspace{0.50cm}
-  \begin{proof}
-    \begin{logicproof}{1}
-      \uncover<2->{p \to (q \to r)} & \uncover<2->{premise} \\
-      \uncover<2->{p} & \uncover<2->{premise} \\
-      \uncover<2->{\lnot r} & \uncover<2->{premise} \\
-      \uncover<4->{\begin{subproof}
-        \uncover<4->{q} & \uncover<4->{assumption} \\
-        \uncover<6->{q \to r} & \uncover<6->{$\to\elim$ 1, 2} \\
-        \uncover<7->{r} & \uncover<7->{$\to\elim$ 5, 4} \\
-        \uncover<5->{\bot} & \uncover<8->{$\lnot\elim$ 6, 3}
-      \end{subproof}}
-      \uncover<3->{\lnot q} & \uncover<9->{$\lnot\intro$ 4--7}
-    \end{logicproof}
-  \end{proof}
-\end{frame}
-%%%%%%%%%%%%%%%%%%%%
-
-%%%%%%%%%%%%%%%%%%%%
-\begin{frame}{}
-  % Example 1.23
-  % Sequent: p \land \lnot q \to r, \lnot r, p \vdash q
-  \begin{exampleblock}{``$\lnot\intro$'' 推理规则的应用}
-    \[
-      \set{(p \land \lnot q) \to r, \lnot r, p} \vdash q
-    \]
-  \end{exampleblock}
-
-  \vspace{0.50cm}
-  {\small
-  \begin{proof}
-    \begin{logicproof}{1}
-      \uncover<2->{(p \land \lnot q) \to r} & \uncover<2->{premise} \\
-      \uncover<2->{\lnot r} & \uncover<2->{premise} \\
-      \uncover<2->{p} & \uncover<2->{premise} \\
-      \uncover<5->{\begin{subproof}
-        \uncover<5->{\lnot q} & \uncover<5->{assumption} \\
-        \uncover<7->{p \land \lnot q} & \uncover<7->{$\land\intro$ 3, 4} \\
-        \uncover<8->{r} & \uncover<8->{$\to\elim$ 1, 5} \\
-        \uncover<6->{\bot} & \uncover<9->{$\lnot\elim$ 6, 2}
-      \end{subproof}}
-      \uncover<4->{\lnot\lnot q} & \uncover<10->{$\lnot\intro$ 4--7} \\
-      \uncover<3->{q} & \uncover<11->{$\lnot\lnot\elim$ 8}
-    \end{logicproof}
-  \end{proof}}
+  % \vspace{0.50cm}
+  % \begin{proof}
+  %   \begin{logicproof}{1}
+  %     \uncover<2->{p \to (q \to r)} & \uncover<2->{premise} \\
+  %     \uncover<2->{p} & \uncover<2->{premise} \\
+  %     \uncover<2->{\lnot r} & \uncover<2->{premise} \\
+  %     \uncover<4->{\begin{subproof}
+  %       \uncover<4->{q} & \uncover<4->{assumption} \\
+  %       \uncover<6->{q \to r} & \uncover<6->{$\to\elim$ 1, 2} \\
+  %       \uncover<7->{r} & \uncover<7->{$\to\elim$ 5, 4} \\
+  %       \uncover<5->{\bot} & \uncover<8->{$\lnot\elim$ 6, 3}
+  %     \end{subproof}}
+  %     \uncover<3->{\lnot q} & \uncover<9->{$\lnot\intro$ 4--7}
+  %   \end{logicproof}
+  % \end{proof}
 \end{frame}
 %%%%%%%%%%%%%%%%%%%%
 
