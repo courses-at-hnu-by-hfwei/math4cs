@@ -33,16 +33,16 @@
       \column{0.70\textwidth}
         \begin{enumerate}[(1)]
           \setlength{\itemsep}{6pt}
-          \item 对量词论域(universe)的解释, 限定个体范围
-          \item 对常数符号、函数符号、谓词符号的解释
-          \item 对\blue{自由}变元的解释 (赋值函数 $s$)
+          \item 对\red{量词}论域(universe)的解释, 限定个体范围
+          \item 对\teal{常数符号、函数符号、谓词符号}的解释
+          \item 对\blue{自由变元}的解释 (赋值函数 $s$)
         \end{enumerate}
       \column{0.15\textwidth}
     \end{columns}
 
     \pause
     \vspace{0.60cm}
-    \fbox{这种``\blue{\bf 解释}''将公式映射到一个\red{\bf 数学结构 $\U$}上, 决定了该公式的语义}
+    \fbox{这种``\blue{\bf 解释}''将公式映射到一个\red{\bf 结构/模型 $\U$}上, 决定了该公式的语义}
   \end{center}
 \end{frame}
 %%%%%%%%%%%%%%%%%%%%
@@ -58,11 +58,11 @@
     \]
     \begin{itemize}
       \setlength{\itemsep}{6pt}
-      \item 将$\alpha$中的常数符号、函数符号、谓词符号按照结构 $\U$ 进行解释,
-      \item 将量词的论域限制在集合 $|\U|$ 上,
-      \item 将自由变元 $x$ 解释为 $s(x)$,
-      \item 这样就将公式 $\alpha$ 翻译成了某个数学领域中的命题,
-      \item 然后, 使用数学领域知识我们知道该命题成立
+      \item 将\red{量词}的论域限制在集合 $|\U|$ 上,
+      \item 将$\alpha$中的\teal{常数符号、函数符号、谓词符号}按照\red{\bf 结构} $\U$ 进行\blue{解释},
+      \item 将\blue{自由变元} $x$ 解释为 $s(x)$,
+      \item 这样就将公式 $\alpha$ 翻译成了某个(数学)领域中的命题,
+      \item 然后, 使用(数学)领域知识我们知道该命题成立
     \end{itemize}
   \end{definition}
 \end{frame}
@@ -71,7 +71,7 @@
 %%%%%%%%%%%%%%%%%%%%
 \begin{frame}{}
   \[
-    \alpha: \forall x.\; (x \times x \neq 1 + 1)
+    \alpha: \forall x.\; \lnot (x \times x = S{\bf 0} + S{\bf 0})
   \]
 
   \pause
@@ -183,6 +183,7 @@
     \red{\boxed{\lnot \exists x \alpha \leftrightarrow \forall x \lnot \alpha}}
   \]
 
+  \pause
   \[
     \lnot (\forall x \in A.\; \alpha) \leftrightarrow \exists x \in A.\; \lnot \alpha
   \]
