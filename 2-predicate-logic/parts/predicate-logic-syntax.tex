@@ -2,32 +2,10 @@
 
 %%%%%%%%%%%%%%%%%%%%
 \begin{frame}{}
-  \begin{exampleblock}{例子: 谓词 (Predicate)}
-    \begin{enumerate}[<+->][(1)]
-      \setlength{\itemsep}{6pt}
-      \item 张三是个法外狂徒
-      \item 李四与张三是好朋友
-      \item 李四也是一个法外狂徒
-      \item 王五站在张三与李四中间 (害怕极了)
-      \item 王五长得比张三与李四都高
-    \end{enumerate}
-  \end{exampleblock}
-
-  \vspace{0.30cm}
-  \uncover<6->{
-    \begin{center}
-      一元谓词表达了个体的性质 \\[8pt]
-      多元谓词表达了个体之间的关系 \\[8pt]
-      零元谓词即命题逻辑中的命题符号
-  \end{center}}
-\end{frame}
-%%%%%%%%%%%%%%%%%%%%
-
-%%%%%%%%%%%%%%%%%%%%
-\begin{frame}{}
   \begin{center}
-    一阶谓词逻辑的语法
+    {\Large ``先讲语法''}
 
+    \vspace{0.30cm}
     \fig{width = 0.60\textwidth}{figs/syntax-semantics}
   \end{center}
 \end{frame}
@@ -46,8 +24,8 @@
       \item [左右括号:] $(, )$
       \pause
       \vspace{0.50cm}
-      \item [\cyan{常数符号:}] 零个或多个常数符号 $a, b, c, \dots$, \teal{表达特殊的个体}
-      \item [\blue{函数符号:}] $n$-元函数符号 $f, g, h, \dots$ ($n \in \N^{+}$), \teal{表达个体上的运算}
+      \item [\cyan{常数符号:}] 零个或多个常数符号 $a, b, c, \dots$, \teal{表达特殊的具体个体}
+      \item [\blue{函数符号:}] $n$-元函数符号 $f, g, h, \dots$ ($n \in \blue{\N^{+}}$), \teal{表达个体上的运算}
       \item [\red{谓词符号:}] $n$-元谓词符号 $P, Q, R, \dots$ ($n \in \N$), \teal{表达个体的性质与关系}
     \end{description}
   \end{definition}
@@ -57,37 +35,43 @@
     \text{初等数论的语言:} \qquad
     L = \set{\textbf{\cyan{0}}, \blue{S}, \blue{+}, \blue{\times}, \red{<}, \red{=}}
   \]
+  \pause
+  \vspace{-0.30cm}
+  \[
+    \text{集合论的语言:} \qquad
+    L = \set{\red{=}, \red{\in}}
+  \]
 \end{frame}
 %%%%%%%%%%%%%%%%%%%%
 
 %%%%%%%%%%%%%%%%%%%%
 \begin{frame}{}
   \begin{center}
-    ``项''是一阶谓词逻辑要讨论的\red{个体}对象, 它本身无所谓真假
+    ``项''是一阶谓词逻辑要讨论的\red{个体}对象, \\
+    用以构成\purple{公式} \gray{(它本身\blue{无所谓真假})}
   \end{center}
 
+  \pause
   \begin{definition}[项 (Term)]
     \begin{enumerate}[(1)]
       \setlength{\itemsep}{8pt}
       \item 每个变元 $x, y, z, \dots$ 都是一个项;
       \item 每个常数符号都是一个项;
       \item 如果 $t_{1}, t_{2}, \dots, t_{n}$ 是项,
-        且 $f$ 为一个 $n$-元函数符号, \\
+        且 \blue{$f$} 为一个 $n$-元\blue{\bf 函数}符号, \\
         则 $f(t_{1}, t_{2}, \dots, t_{n})$ 也是项;
-      \item 除此之外, 别无其它。
+      \item \teal{除此之外, 别无其它。}
     \end{enumerate}
   \end{definition}
   \[
     L = \set{\textbf{\cyan{0}}, \blue{S}, \blue{+}, \blue{\times}, \red{<}, \red{=}}
   \]
   \[
-    x
+    x \qquad \cyan{\bf 0}
   \]
   \[
-    {\bf 0}
-  \]
-  \[
-    S{\bf 0} \qquad x + SSS0 \qquad (x + SSS0) \times y
+    S{\bf 0} \qquad x + SSS{\bf 0} \qquad (x + SSS{\bf 0}) \times y
+    \pause \qquad {\bf 0} < S{\bf 0}
   \]
 \end{frame}
 %%%%%%%%%%%%%%%%%%%%
@@ -95,30 +79,37 @@
 %%%%%%%%%%%%%%%%%%%%
 \begin{frame}{}
   \begin{center}
-    公式刻画了\red{个体的性质}或者\red{个体之间的关系}, 它的语义就是它的真假值
+    公式刻画了\red{个体的性质}或者\red{个体之间的关系}
+    \gray{(它的语义就是它的\blue{真假值})}
   \end{center}
 
-  \begin{definition}[公式 (Formula)]
+  \begin{definition}[\gray{合式 (Well-formed)} 公式 (Formula)]
     \begin{enumerate}[(1)]
       \setlength{\itemsep}{8pt}
-      \item 如果 $t_{1}, \dots, t_{n}$ 是项, 且 $P$ 是一个 $n$ 元谓词符号, \\
+      \item 如果 $t_{1}, \dots, t_{n}$ 是项, 且 $P$ 是一个 $n$ 元\blue{\bf 谓词}符号, \\
         则 $P(t_{1}, \dots, t_{n})$ 为公式, 称为\teal{\bf 原子公式};
-      \item 如果 $\alpha$ 与 $\beta$ 都是公式, 则 $(\lnot \alpha)$
-        与 $(\alpha \;\red{\ast}\; \beta)$ 都是公式;
-      \item 如果 $\alpha$ 是公式, 则 \red{$\forall x.\; \alpha$}
-        与 \red{$\exists x.\; \alpha$} 也是公式;
-      \item 除此之外, 别无其它。
+      \item 如果 $\alpha$ 与 $\beta$ 都是公式,
+        则 $(\alpha)$、$(\lnot \alpha)$、$(\alpha \;\red{\ast}\; \beta)$ 都是公式;
+      \item 如果 $\alpha$ 是公式, $x$ 是一个变元, 则 \red{$\forall x\; \alpha$}
+        与 \red{$\exists x\; \alpha$} 也是公式;
+      \item \teal{除此之外, 别无其它。}
     \end{enumerate}
   \end{definition}
 
   \pause
   \vspace{0.20cm}
   \begin{center}
-    \blue{\bf 约定:} 量词符号 $\forall$ 与 $\exists$ 的管辖范围尽可能短
+    \blue{\bf 约定:} 量词符号 \red{$\forall$} 与 \red{$\exists$} 的管辖范围尽可能短
+    \pause
     \[
-      \forall x.\; \alpha \to \beta:
-        \text{表示}\; (\forall x.\; \alpha) \to \beta
-        \quad \gray{\text{不表示}\; \forall x.\; (\alpha \to \beta)}
+      \forall x\; \alpha \to \beta:
+        \text{表示}\; (\forall x\; \alpha) \to \beta
+        \quad \gray{\text{不表示}\; \forall x\; (\alpha \to \beta)}
+    \]
+    \pause
+    \vspace{-0.30cm}
+    \[
+      \blue{\forall x.\; \alpha \to \beta}
     \]
   \end{center}
 \end{frame}
@@ -133,7 +124,7 @@
   \pause
   \vspace{0.60cm}
   \[
-    \ndnoname{\forall x.\; (H(x) \to M(x)) \qquad H(s)}{M(s)}
+    \ndnoname{\forall x\; (H(x) \to M(x)) \qquad H(s)}{M(s)}
   \]
 \end{frame}
 %%%%%%%%%%%%%%%%%%%%
@@ -144,26 +135,38 @@
     L = \set{\textbf{\cyan{0}}, \blue{S}, \blue{+}, \blue{\times}, \red{<}, \red{=}}
   \]
 
-  \begin{enumerate}[<+->][(1)]
+  \vspace{0.30cm}
+  \begin{enumerate}[(1)]
     \setlength{\itemsep}{8pt}
+    \pause
     \item 0 不是任何自然数的后继
-      % \[
-      %   \forall x.\; \lnot (Sx = 0)
-      % \]
+      \pause
+      \[
+        \forall x.\; \lnot (Sx = 0)
+      \]
+    \pause
+    \vspace{-0.50cm}
     \item 两个自然数相等当且仅当它们的后继相等
-      % \[
-      %   \forall x.\; \forall y.\; (x = y \leftrightarrow Sx = Sy)
-      % \]
+      \pause
+      \[
+        \forall x.\; \forall y.\; (x = y \leftrightarrow Sx = Sy)
+      \]
+    \pause
+    \vspace{-0.50cm}
     \item $x$ 是素数 ($x > 1$ 且 $x$ 没有除自身和1之外的因子)
-      % \[
-      %   \text{Prime}(x): S0 < x \land \forall y.\; \forall z.\; (y < x \land z < x) \to \lnot (y \times z = x)
-      % \]
+      \pause
+      \[
+        \text{Prime}(x): S0 < x \land \forall y.\; \forall z.\; (y < x \land z < x) \to \lnot (y \times z = x)
+      \]
+    \pause
+    \vspace{-0.50cm}
     \item 哥德巴赫猜想 (任一大于2的偶数, 都可表示成两个素数之和)
-      % \begin{align*}
-      %   &\forall x.\; (SS0 < 2 \land (\exists y.\; 2 \times y = x)) \to \\
-      %     &\quad (\exists x_{1}.\; \exists x_{2}.\; \text{Prime}(x_{1}) \land \text{Prime}(x_{2})
-      %       \land x_{1} + x_{2} = x)
-      % \end{align*}
+      \pause
+      \begin{align*}
+        &\forall x.\; (SS0 < 2 \land (\exists y.\; 2 \times y = x)) \to \\
+          &\quad (\exists x_{1}.\; \exists x_{2}.\; \text{Prime}(x_{1}) \land \text{Prime}(x_{2})
+            \land x_{1} + x_{2} = x)
+      \end{align*}
   \end{enumerate}
 \end{frame}
 %%%%%%%%%%%%%%%%%%%%
@@ -195,6 +198,10 @@
     \blue{\forall x \in A.\; \alpha} \quad\text{实际上是}\quad
       \blue{\forall x.\; (x \in A \;\red{\to}\; \alpha)} \quad\text{的简记}
   \]
+
+  \uncover<2->{
+    \fig{width = 0.45\textwidth}{figs/why-why-why}
+  }
 
   \[
     \blue{\exists x \in A.\; \alpha} \quad\text{实际上是}\quad
