@@ -49,21 +49,23 @@
 
 %%%%%%%%%%%%%%%%%%%%
 \begin{frame}{}
-  \begin{definition}[$(\U, s) \models \alpha$]
+  \begin{definition}[$(\U, s) \models \phi$]
     \begin{center}
-      $\U$ 与 $s$ 满足公式 $\alpha$:
+      $\U$ 与 $s$ 满足公式 $\phi$:
     \end{center}
     \[
-      (\U, s) \models \alpha
+      (\U, s) \models \phi
     \]
     \begin{itemize}
       \setlength{\itemsep}{6pt}
-      \item 将\red{量词}的论域限制在集合 $|\U|$ 上,
-      \item 将$\alpha$中的\teal{常数符号、函数符号、谓词符号}按照\red{\bf 结构} $\U$ 进行\blue{解释},
-      \item 将\blue{自由变元} $x$ 解释为 $s(x)$,
-      \item 这样就将公式 $\alpha$ 翻译成了某个(数学)领域中的命题,
-      \item 然后, 使用(数学)领域知识我们知道该命题成立
+      \item 将\red{量词}的论域 (\red{约束变元} 取值范围) 限制在集合 $|\U|$ 上,
+      \item 将$\phi$中的\teal{常数符号、函数符号、谓词符号}按照\red{\bf 结构} $\U$ 进行\purple{解释},
+      \item 将\green{自由变元} $x$ 解释为 $s(x)$,
     \end{itemize}
+    \begin{center}
+      这样就将公式 $\phi$ 翻译成了某个(数学)领域中的命题, \\[6pt]
+      然后, 根据(数学)领域知识, 我们可以判断公式 $\phi$ 是否成立
+    \end{center}
   \end{definition}
 \end{frame}
 %%%%%%%%%%%%%%%%%%%%
@@ -71,18 +73,109 @@
 %%%%%%%%%%%%%%%%%%%%
 \begin{frame}{}
   \[
-    \alpha: \forall x.\; \lnot (x \times x = S{\bf 0} + S{\bf 0})
+    \phi: \forall x\; \lnot (x \times x = S{\bf 0} + S{\bf 0})
   \]
 
   \pause
   \vspace{0.80cm}
   \begin{center}
-    $\alpha$ 在数学结构 $\U = \Q$ 中为真
+    $\phi$ 在数学结构 $\U \triangleq \Q$ 中为真
 
     \vspace{0.60cm}
 
-    $\alpha$ 在数学结构 $\U = \R$ 中为假
+    $\phi$ 在数学结构 $\U \triangleq \R$ 中为假
   \end{center}
+\end{frame}
+%%%%%%%%%%%%%%%%%%%%
+
+%%%%%%%%%%%%%%%%%%%%
+\begin{frame}{}
+  \[
+    L = \set{=, \in}
+  \]
+
+  \pause
+  \[
+    \blue{\exists x\; \forall y\; \lnot(y \in x)}
+  \]
+
+  \pause
+  \[
+    \teal{|\U| \triangleq \N \qquad \in^{\U} \triangleq <}
+  \]
+\end{frame}
+%%%%%%%%%%%%%%%%%%%%
+
+%%%%%%%%%%%%%%%%%%%%
+\begin{frame}{}
+  \[
+    L = \set{\mathcal{C} \triangleq \set{i},
+      \mathcal{P} \triangleq \set{F^{1}, R^{2}}}
+  \]
+
+  \pause
+  \begin{columns}
+    \column{0.20\textwidth}
+    \column{0.60\textwidth}
+      \begin{description}[$R^{\U}$:]
+        \item[$|\U|$:] a set of states of a program
+        \item[$i^{\U}$:] a designated initial state
+        \item[$F^{\U}$:] a set of finial (accepting) state
+        \item[$R^{\U}$:] a state transition relation
+      \end{description}
+    \column{0.20\textwidth}
+  \end{columns}
+
+  \pause
+  \vspace{0.80cm}
+  \[
+    \exists x\; R(i, x) \qquad\pause
+    \lnot F(i) \qquad\pause
+    \forall x\; \exists y\; R(x, y)
+  \]
+  \pause
+  \[
+    \forall x\; \forall y\; \forall z\;
+      ((R(x, y) \land R(x, z)) \to y = z)
+  \]
+\end{frame}
+%%%%%%%%%%%%%%%%%%%%
+
+%%%%%%%%%%%%%%%%%%%%
+\begin{frame}{}
+  \[
+    L = \set{\mathcal{C} \triangleq \set{\epsilon},
+      \mathcal{F} \triangleq \set{\cdot^{2}},
+      \mathcal{P} \triangleq \set{\le^{2}}}
+  \]
+
+  \pause
+  \begin{columns}
+    \column{0.20\textwidth}
+    \column{0.60\textwidth}
+      \begin{description}[$R^{\U}$:]
+        \item[$|\U|$:] a set of string
+        \item[$\epsilon^{\U}$:] the empty string
+        \item[$\cdot^{\U}$:] concatenation of two strings
+        \item[$\le^{\U}$:] ``prefix of''
+      \end{description}
+    \column{0.20\textwidth}
+  \end{columns}
+
+  \pause
+  \vspace{0.80cm}
+  \[
+    \exists y\; \forall x\; (y \le x) \pause\qquad
+    \forall x\; \exists y\; (y \le x)
+  \]
+  \pause
+  \[
+    \forall x\; ((x \le x \cdot \epsilon) \land (x \cdot \epsilon \le x))
+  \]
+  \pause
+  \[
+    \lnot\exists x\;\forall y\; ((x \le y) \to (y \le x))
+  \]
 \end{frame}
 %%%%%%%%%%%%%%%%%%%%
 
@@ -97,7 +190,7 @@
   \end{definition}
 
   \[
-    \set{\forall x.\; P(x)} \models P(y)
+    \set{\forall x\; P(x)} \models P(y)
   \]
 \end{frame}
 %%%%%%%%%%%%%%%%%%%%
@@ -105,15 +198,15 @@
 %%%%%%%%%%%%%%%%%%%%
 \begin{frame}{}
   \[
-    \alpha: \forall x \forall y \forall z ((P(x, y) \land P(y, z)) \to P(x, z))
+    \alpha: \forall x \forall y \forall z\; ((P(x, y) \land P(y, z)) \to P(x, z))
   \]
 
   \[
-    \beta: \forall x \forall y ((P(x, y) \land P(y, x)) \to x = y)
+    \beta: \forall x \forall y\; ((P(x, y) \land P(y, x)) \to x = y)
   \]
 
   \[
-    \gamma: \forall x \exists y P(x, y) \to \exists y \forall x P(x, y)
+    \gamma: \forall x \exists y\; P(x, y) \to \exists y \forall x\; P(x, y)
   \]
 
   \vspace{0.50cm}

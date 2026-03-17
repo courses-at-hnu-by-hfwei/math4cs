@@ -216,7 +216,19 @@
     \column{0.50\textwidth}
       \uncover<2->{\fig{width = 0.80\textwidth}{figs/motivation-with-arrow}}
     \column{0.50\textwidth}
+      \uncover<3->{
+        \[
+          \forall x\; (x > y)
+        \]
+      }
+
       \fig{width = 0.80\textwidth}{figs/substitution-red}
+
+      \uncover<4->{
+        \[
+          (\forall x\; (x > 0)) \to (y > 0)
+        \]
+      }
   \end{columns}
 \end{frame}
 %%%%%%%%%%%%%%%%%%%%
@@ -255,9 +267,9 @@
         \green{自由 (free) 变元}
       \end{center}
     \column{0.50\textwidth}
-      \fig{width = 0.60\textwidth}{figs/integration}
+      \fig{width = 0.45\textwidth}{figs/integration}
       \pause
-      \fig{width = 0.60\textwidth}{figs/for-i}
+      \fig{width = 0.75\textwidth}{figs/for-i}
   \end{columns}
 \end{frame}
 %%%%%%%%%%%%%%%%%%%%
@@ -323,6 +335,7 @@
     为尽量避免重名, 可将\red{\bf 约束变元}\teal{\bf 改名}为\blue{新鲜(fresh)}变元
   \end{definition}
 
+  \pause
   \fig{width = 0.50\textwidth}{figs/rename-error}
 
   \pause
@@ -391,6 +404,7 @@
 %%%%%%%%%%%%%%%%%%%%
 \begin{frame}{}
   \begin{definition}[$t$ 在 $\phi$ 中可以无冲突地替换 $x$ ($t$ is free for $x$ in $\phi$)]
+    \pause
     \begin{description}[$\phi$ 是原子公式:]
       \setlength{\itemsep}{10pt}
       \item[$\phi$ 是原子公式:] 无附加条件
@@ -419,6 +433,7 @@
       \exists \violet{x}\; P(\violet{x}, \green{y})
   \]
 
+  \pause
   \[
     \phi[P(u, v)/z] \pause\qquad
     \phi[P(u, v)/x] \pause\qquad
@@ -431,14 +446,16 @@
 \begin{frame}{}
   \begin{exampleblock}{自由变元、约束变元、替换、无冲突替换}
     \[
-      \phi: \exists x\; (P(y, z) \land
+      \blue{\phi:} \exists x\; (P(y, z) \land
         (\forall y\; (\lnot Q(y, x) \lor P(y, z))))
     \]
 
     \pause
     \[
-      \phi[w/x] \qquad \phi[w/y] \qquad
-      \phi[f(x)/y] \qquad \phi[g(y, z)/z]
+      \blue{\phi}[w/x] \pause\qquad
+      \blue{\phi}[w/y] \pause\qquad
+      \blue{\phi}[f(x)/y] \pause\qquad
+      \blue{\phi}[g(y, z)/z]
     \]
   \end{exampleblock}
 \end{frame}
